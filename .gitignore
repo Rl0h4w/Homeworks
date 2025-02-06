@@ -61,6 +61,3 @@ desktop.ini      # Windows
 *.swp            # Vim
 *~               # Backup files
 
-# Ignore .git directories in subfolders
-*/.git/
-*./.gitignore
