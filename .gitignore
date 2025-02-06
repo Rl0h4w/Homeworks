@@ -1,0 +1,66 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.whl
+*.egg
+.eggs/
+dist/
+build/
+*.log
+pip-wheel-metadata/
+
+# Go
+*.exe
+*.exe~
+*.out
+*.test
+*.dSYM
+vendor/
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.lot
+*.toc
+*.synctex.gz
+*.pdf
+*.eps
+*.gz
+*.out
+*.lof
+*.idx
+*.ilg
+*.ind
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store        # macOS
+Thumbs.db        # Windows
+desktop.ini      # Windows
+
+# Other
+*.swp            # Vim
+*~               # Backup files
+
+# Ignore .git directories in subfolders
+*/.git/
+*./.gitignore
