@@ -18,6 +18,7 @@ dist/
 build/
 *.log
 pip-wheel-metadata/
+.venv
 
 # Go
 *.exe

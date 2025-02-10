@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения PGFPlots
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+
+    \Huge
+    \textbf{Домашнее задание}
+
+    \vspace{0.5cm}
+    \LARGE
+    По курсу: \textbf{Дискретная математика}
+
+    \vspace{1.5cm}
+
+    \textbf{Студент: Ростислав Лохов}
+
+    \vfill
+
+    \Large
+    АНО ВО Центральный университет\\
+    \vspace{0.3cm}
+    \today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Булева алгебра}
+
+ДИСКЛЕЙМЕР: Мне очень нужно попасть на красно-черный уровень, для этого нужно 8  баллов минимум набрать в течение 3х недель, не придирайтесь строго пожалуйста:) Я попал сюда потому что пропустил тест:(
+
+\subsection{Задача 1}
+\begin{enumerate}
+    \item Если он синий, то он круглый ( из либо синий либо желтый)
+    \item Если он желтый, то квадратный, если он квадратный, то он красный - противоречеие
+    \item Значит синий круглый(пооооооолукруг голубоооооооооой)
+\end{enumerate}
+
+\subsection{Задача 2}
+\begin{enumerate}
+    \item Рассмотрим первого, если он лжец, тогда вокруг него два рыцаря, если он рыцарь - два лжеца
+    \item Если второй лжец, тогда вокруг него него либо нет лжецов, либо два лжеца, если рыцарь - действительно один 
+    \item тогда если третий рыцарь, то он может сказать, что вокруг него один лжец - первый.
+\end{enumerate}
+
+\subsection{Задача 3}
+\begin{enumerate}
+    \item $(C\lor R) \to \overline{M} = (\overline{C}\land \overline{R}) \lor \overline{M} = (\overline{C}\lor \overline{M}) \land (\overline{R} \lor \overline{M}) = (C \to \overline{M}) \lor (R \to \overline{M})$ т.е совпадает с пунктом 4
+    \item $M \to (\overline{C} \land \overline{R}) = \overline{M}\lor\overline{C\lor R} = M \land C \land R$ = совпадает с 1ым т.к если одно условие не выполняется, то мероприятия нет
+    \item $\overline{M} \to (C \lor R) = M \lor (\overline{C}\land\overline{R})$
+    \item $R \to \overline{M} \land C \to \overline{M}$
+    \item $\overline{C} \land \overline{R} \to M = (C \lor R) \lor M$ - совпадает с 3м
+    \item т.е АБГ и ВД
+\end{enumerate}
+
+\subsection{Задача 4}
+Для начала упростим:
+\[
+(\overline{A} \lor C) \land (\overline{A} \lor \overline{C}) \land (A\lor (C \land \overline{B} \land D))
+\]
+
+\[
+(\overline{A} \lor C) \land (\overline{A} \lor \overline{C}) \land ((A\lor C) \land (A \lor \overline{B}) \land (A \lor D))
+\]
+
+\[
+\overline{A} \land C \land \overline{B} \land D
+\]
+
+
+\[
+A = 0; B = 0; C = 1; D = 1
+\]
+
+\subsection{Задача 5}
+Просто составим функцию: 
+
+\[ f(x) = 
+\begin{cases}
+    14 > x, \text{если} x > 16\\
+    14 < x, \text{если} x < 16
+\end{cases}
+\]
+Получим, что функция истинна только если x = 15
+
+\subsection{Задача 6}
+\begin{enumerate}
+    \item $(P\land\overline{Q}) \lor (P\land \overline{R}) = P \land \overline{Q} \land \overline{R}$
+    \item $(P\lor \overline{Q}) \lor (P\land \overline{R}) = (P\lor P \lor \overline{Q})\land (\overline{R} \lor P \lor \overline{Q})=(P\lor \overline{Q})\land (\overline{R}\lor P \lor \overline{Q}) = (P \land (\overline{R}\lor P \lor \overline{Q}))\lor(\overline{Q} \land (\overline{R}\lor P \lor \overline{Q})) = P\lor \overline{Q}$
+    \item $(P\land R) \lor (\overline{R}\land P) \lor (\overline{R} \land Q)= P \lor (\overline{R}\land Q)$
+\end{enumerate}
+
+\subsection{Задача 7}
+$A\lor(B\land C)$ Не знаю что нужно пояснить, просто посмотрел сначала на второй и третий столбец как они мебя ведут, потом на первый и второй, затем обьединил и проверил
+
+\subsection{Задача 8}
+Тут через круги эйлера, не буду утруждать себя кодом в латехе для создания. Представляю в голове области и жестко пишу формулы в латехе для решения задачи:
+\begin{enumerate}
+    \item Заметим, что $A\oplus B \equiv (A\oplus B)\oplus (A\land B)$ тогда $(A\land B)\land C = ((A \oplus B) \oplus (A \land B)) \oplus C \oplus (((A \oplus B) \oplus (A \land B)) \land C)$ 
+    \item Заметим, что $A \lor B = (\overline{A} \to B)\Rightarrow (A\land B)\lor C = \overline{A\land B} \to C = ((A \to \overline{B}) \to C)$
+\end{enumerate}
+
+\end{document}

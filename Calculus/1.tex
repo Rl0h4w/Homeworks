@@ -133,7 +133,7 @@
 Тогда в окрестности каждой такой точки можно выбрать рациональное число. Таким образом можно установить биекцию, а т.к множество рациональных чисел счётно, то множетсво изолированных точек счётно.
 \subsection{Задача 6}
 \begin{enumerate}
-    \item $z \in [0; +\infty]$
+    \item $x\sin(y)\ge 0$, $[0;+\infty]$
     \item Замкнуто, не является областью, т.к область должна быть открытой и связанной.
 \end{enumerate}
 
@@ -150,11 +150,21 @@ x = t\cos(\alpha) \land y = t\sin(\alpha) \land t = \sqrt{x^2+y^2}
 \]
 
 \[
-\lim_{t \to +\infty} \frac{t^4(1-\sin^2(\alpha))^2}{e^{(t\cos(\alpha))^2-tsin(\alpha)}}
+\lim_{t \to +\infty} \frac{t^4(1-\sin^2(\alpha))^2}{e^{(t\cos(\alpha))^2-tsin(\alpha)}} = \lim_{t \to \infty} \frac{t^4\cos^2(\alpha)}{e^{t(t\cos^2(\alpha)-\sin(\alpha))}}
 \]
 
-т.к показательная функция в знаменателе растёт быстрее чем любая полиномиальная, то предел равен 0.
+применим правило Лопиталя дважды, получим
+\[
+\lim_{t \to \infty} \frac{12t^2}{e^{t(t\cos(\alpha)^2-\sin(\alpha))}(4t^2\cos^4(\alpha)+\cos(\alpha)^2(2-4\sin(\alpha))+\sin^2(\alpha))} = 0
+\]
 
+таким образом предел по направлению существует, однако общего предела нет(предела по совокупности) Контрпример:
+
+\[
+y=x^2 \Rightarrow \lim_{x \to \infty} x^4 = \infty
+\]
+
+а т.к пределы по направлению не совпадают, то предела не существует
 \subsection{Задача 8}
 
 \[
@@ -162,8 +172,10 @@ x = r\cos(\theta) \land y = r\sin(\theta) \land r = \sqrt{x^2+y^2}
 \]
 
 \[
-lim_{(x;y) \to (+\infty;+\infty)} \frac{x^2+3y^2}{e^{x+y}} = lim_{r \to +\infty} \frac{(r\cos(\theta))^2+3(r\sin(\theta))^2}{e^{r(\cos(\theta)+\sin(\theta))}}=0
+\lim_{(x;y) \to (+\infty;+\infty)} \frac{x^2+3y^2}{e^{x+y}} = \lim_{r \to +\infty} \frac{(r\cos(\theta))^2+3(r\sin(\theta))^2}{e^{r(\cos(\theta)+\sin(\theta))}}
 \]
+
+т.к в знаменателе сумма в показателе может быть как отрицательна, так и положительна, то предел может быть как бесконечность, так и 0 соответственно.
 
 \subsection{Задача 9}
 
@@ -214,7 +226,11 @@ x = r\cos(\theta) \land y = r\sin(\theta) \land r = \sqrt{x^2+y^2}
 \lim_{r \to 0} \frac{\sin(\theta) \sin(r \cos(\theta)) - \cos(\theta) \sin(r \sin(\theta))}{r^3}
 \]
 
-Т.к числитель ограничен, а знаменатель стремится к бесконечности, а также знак числителя зависит от $\theta$ то предел будет зависеть от $\theta$ и его не существует
+\[
+\lim_{r \to 0}\frac{\sin(\theta) \left( r \cos(\theta) - \frac{r^3 \cos^3(\theta)}{6} \right) - \cos(\theta) \left( r \sin(\theta) - \frac{r^3 \sin^3(\theta)}{6} \right) + o(r^3)}{r^3} = -\frac{1}{6} \sin\theta \cos\theta \cos(2\theta)
+\]
+
+Таким образом предел зависит от $\theta$, а значит предела нет
 
 \section{Повторный предел}
 
@@ -248,12 +264,20 @@ x = r\cos(\theta) \land y = r\sin(\theta) \land r = \sqrt{x^2+y^2}
     \item[a)]   \[
                 \lim_{r \to 0} \frac{r^4\cos(\varphi)\sin(\varphi)^3}{\sqrt{r^6(\cos^6(\varphi)+\sin^6(\varphi))}}
                 \]
-                т.к числитель убывает к 0 быстрее чем знаменатель из за того что произведение ограниченной на бесконечно малую, то получаем, что равно 0
+                сделаеем оценку, не зависящую от $\varphi$
+                \[
+                |f(x_0+r\cos(\varphi); y_0 + r\sin(\varphi)| \le r
+                \]
+                Таким образом, оценка существует, а значит существует и предел по совокупности.
     \item[b)]   \[
                 \lim_{r \to 0} \frac{\frac{r^2\cos(\varphi)^2}{2}}{\sqrt{r^2(\cos^2(\varphi)+\sin^2(\varphi))}}=\frac{r\cos(\varphi)^2}{\sqrt{\cos^2(\varphi)+\sin^2(\varphi)}} = 0
                 \]
-                произведение бесконечно малой на ограниченную
+                \[
+                |f(x_0+r\cos(\varphi); y_0 + r\sin(\varphi)| \le |r|
+                \]
+                Таким образом, оценка существует, а значит существует и предел по совокупности.
 \end{enumerate}
+
 
 \section{Непрерывность по множеству, совокупности и по переменной}
 

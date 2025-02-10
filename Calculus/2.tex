@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+
+    \Huge
+    \textbf{Домашнее задание}
+
+    \vspace{0.5cm}
+    \LARGE
+    По курсу: \textbf{Математический Анализ}
+
+    \vspace{1.5cm}
+
+    \textbf{Студент: Ростислав Лохов}
+
+    \vfill
+
+    \Large
+    АНО ВО Центральный университет\\
+    \vspace{0.3cm}
+    \today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Частные производные}
+
+\subsection{Задача 1}
+
+a)
+\[
+\frac{\partial f}{\partial x} = \frac{3\arctan(x)^2}{(1+x^2)}
+\]
+
+\[
+\frac{\partial f}{\partial y} = \frac{6\arcsin(2y)^2}{\sqrt{1-4y}}
+\]
+
+b)
+\[
+\frac{\partial f}{\partial x} = 
+\]
+\end{document}
