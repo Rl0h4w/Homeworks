@@ -104,12 +104,12 @@ MANIFEST       # Manifest file
 *.dylib        # Python dynamic library (macOS)
 *.DS_Store     # Redundant here, already in general section, but for emphasis on Python projects
 *.env          # Environment files (might want to track specific .env files, review)
-*.venv         # Virtual environment directories
+.venv         # Virtual environment directories
 venv/          # Virtual environment directories
 env/           # Virtual environment directories
 .env/          # Virtual environment directories
 .virtualenvs/  # Virtual environment directories
-
+.git
 # C/C++ Specific #
 ######################################
 *.o            # Object files
