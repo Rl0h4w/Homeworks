@@ -1,189 +1,64 @@
-# General OS and Editor/IDE files #
-######################################
-.DS_Store
-.Thumbs.db
-._*
-*~
-*.swp
-*.bak
-*.tmp
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
 *.log
 
-# IDE and Editor Specific Folders #
-######################################
-.idea/         # IntelliJ IDEA, PyCharm, GoLand, CLion
-.vscode/       # Visual Studio Code
-.project
-.classpath
-.settings/
-*.iml          # IntelliJ IDEA module files
-*.ipr          # IntelliJ IDEA project files
-*.iws          # IntelliJ IDEA workspace files
-*.workspace    # Eclipse workspace files
-.metadata/     # Eclipse metadata
-.cache/
-.c9/           # Cloud9 IDE
-*.orig         # Backup files (often created by text editors)
-
-# Go Specific #
-######################################
-*.exe          # Executables (Windows)
-*.test         # Test binaries
-_obj/
-_test/
-_benchmark/
-_fuzz/
-*.out          # Coverage profiles, etc.
-vendor/        # Go modules vendor directory (consider if you commit this or not)
-
-# Java Specific #
-######################################
-*.class        # Java bytecode
-*.jar          # Java Archive
-*.war          # Web Application Archive
-*.ear          # Enterprise Archive
-*.hprof        # Java profiling output
-bin/           # Compiled output directory (common in some Java projects)
-build/         # General build output directory
-target/        # Maven default output directory
-out/           # IntelliJ IDEA default output directory
-*.iml          # IntelliJ IDEA module files (redundant in general IDE section, but explicit for Java projects)
-*.classpath    # Eclipse classpath file
-*.project      # Eclipse project file
-.gradle/       # Gradle build system files
-*.prefs        # Eclipse preferences
-
-# LaTeX Specific #
-######################################
-*.aux
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.whl
+*.egg
+.eggs/
+dist/
+build/
 *.log
-*.toc
-*.dvi
-*.ps
-*.pdf         # Be careful, might want to keep final PDFs if they are deliverables.
-*.lof
-*.lot
-*.blg
-*.bbl
+pip-wheel-metadata/
+.venv
+
+# Go
+*.exe
+*.exe~
 *.out
-*.ilg
-*.thm
+*.test
+*.dSYM
+vendor/
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.dvi
 *.fdb_latexmk
 *.fls
+*.log
+*.lot
+*.toc
 *.synctex.gz
-*.nav
-*.snm
-*.vrb
-*_minted*    # minted package cache
-*.run.xml     # TeXnicCenter run XML
-_minted-      # minted package temporary directory
-_latexmk-     # latexmk temporary directory
-
-
-# Python Specific #
-######################################
-*.pyc          # Python bytecode
-__pycache__/   # Python bytecode cache directory
-*.egg-info/    # Python Egg Info directory
-.pytest_cache/ # pytest cache directory
-.mypy_cache/   # mypy cache directory
-.pyre_configuration/ # Pyre type checker configuration
-.pytype_cache/ # Pytype type checker cache
-dist/          # Distribution files created by setup.py sdist
-build/         # Build directory
-wheels/        # Wheel files
-*.whl          # Wheel files
-develop-eggs/  # Develop eggs directory
-*.egg          # Egg files
-MANIFEST       # Manifest file
-*.manifest     # Manifest files
-*.spec         # Spec files
-.Python         # Python.framework directory
-*.pyd          # Python dynamic library (Windows)
-*.so           # Python shared object (Linux/macOS)
-*.dylib        # Python dynamic library (macOS)
-*.DS_Store     # Redundant here, already in general section, but for emphasis on Python projects
-*.env          # Environment files (might want to track specific .env files, review)
-.venv         # Virtual environment directories
-venv/          # Virtual environment directories
-env/           # Virtual environment directories
-.env/          # Virtual environment directories
-.virtualenvs/  # Virtual environment directories
-.git
-# C/C++ Specific #
-######################################
-*.o            # Object files
-*.obj          # Object files (Windows)
-*.exe          # Executables (Windows, redundant but explicit)
-*.dll          # Dynamic Link Libraries (Windows)
-*.so           # Shared Objects (Linux)
-*.dylib        # Dynamic Libraries (macOS)
-*.a            # Static Libraries
-*.lib          # Library files (Windows)
-*.pdb          # Program Database files (Windows debugging symbols)
-*.ilk          # Incremental Linker Files (Windows)
-*.map          # Linker Map files
-*.exp          # Export files (Windows)
-*.ncb          # No Compile Browser files (Visual Studio)
-*.sdf          # SQL Server Compact Edition files (Visual Studio)
-*.suo          # Solution User Options files (Visual Studio)
-*.user         # User files (Visual Studio)
-*.opensdf      # Visual Studio IntelliCode files
-*.vsprops      # Visual Studio project property pages
-*.vcxproj.user # Visual Studio project user files
-*.sln.docstates# Visual Studio solution document state files
-*.test         # Test binaries (redundant, but good to have in C/C++ context too)
-bin/           # Binary output directory
-lib/           # Library output directory
-build/         # Build output directory
-obj/           # Object file directory
-
-# Dependency Management (General - might be applicable across languages) #
-######################################
-node_modules/   # Node.js modules (if you are using Node.js tooling alongside)
-jspm_packages/  # JSPM packages (JavaScript package manager)
-web_components/ # Web Components (JavaScript)
-bower_components/# Bower components (JavaScript - older frontend package manager)
-
-# Archives and Packages #
-######################################
-*.zip
-*.tar
-*.tar.gz
-*.tgz
-*.rar
-*.7z
+*.pdf
+*.eps
 *.gz
-*.bz2
-*.xz
-*.egg
+*.out
+*.lof
+*.idx
+*.ilg
+*.ind
 
-# OS generated files #
-######################################
-.AppleDouble    # macOS AppleDouble files
-.LSOverride     # macOS .LSOverride files
+# IDEs and Editors
+.vscode/
+.idea/
 
-# Backup files #
-######################################
-*.[0-9]*       # Backup files like filename.1, filename.2, etc.
+# Operating System files
+.DS_Store        # macOS
+Thumbs.db        # Windows
+desktop.ini      # Windows
 
+# Other
+*.swp            # Vim
+*~               # Backup files
 
-# Ignore lock files from package managers if you decide to not track them
-######################################
-# package-lock.json # npm lock file (JavaScript)
-# yarn.lock       # Yarn lock file (JavaScript)
-# Pipfile.lock    # Pipenv lock file (Python)
-# poetry.lock     # Poetry lock file (Python)
-# go.sum          # Go modules checksum file (consider if you commit this or not, usually you do)
-# Podfile.lock    # CocoaPods lock file (iOS/macOS)
-# Gemfile.lock    # Bundler lock file (Ruby)
-# gradle-wrapper.properties # Gradle wrapper properties (Java/Android)
-# gradlew         # Gradle wrapper script (Java/Android)
-# gradlew.bat     # Gradle wrapper batch script (Java/Android)
-
-
-# Customizations - Add any project-specific ignores below #
-##########################################################
-# Example: Ignore specific folders or files that are unique to your projects
-# my_temp_data/
-# important_secret_key.txt
