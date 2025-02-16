@@ -35,11 +35,11 @@ public class Game {
     }
 
     private boolean checkGameOver() {
-        if (this.health <= 0 || this.energy <= 0) {
+        if (this.health <= 0) {
             usePoison();
-            if (this.health <= 0 || this.energy <= 0) {
-                return true;
-            }
+        }
+        if (this.health <= 0 || this.energy <= 0) {
+            return true;
         }
         return false;
     }

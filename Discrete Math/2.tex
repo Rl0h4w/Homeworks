@@ -1,0 +1,149 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения PGFPlots
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+
+    \Huge
+    \textbf{Домашнее задание}
+
+    \vspace{0.5cm}
+    \LARGE
+    По курсу: \textbf{Дискретная математика}
+
+    \vspace{1.5cm}
+
+    \textbf{Студент: Ростислав Лохов}
+
+    \vfill
+
+    \Large
+    АНО ВО Центральный университет\\
+    \vspace{0.3cm}
+    \today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Предикаты и кванторы. Логика первого порядка}
+
+ДИСКЛЕЙМЕР: Мне очень нужно попасть на красно-черный уровень, для этого нужно 8  баллов минимум набрать в течение 3х недель, не придирайтесь строго пожалуйста:) Я попал сюда потому что пропустил тест:(
+
+\subsection{Задача 1}
+\begin{enumerate}
+    \item $y=2x$ - верно, для любого натурального x существует натуральный y, что выполняется
+    \item $y=2x$ - неверно, например $y=7 \Leftarrow x=3.5$ что не является натуральным
+    \item $x=2y$ - неверно, также $x=7 \Leftarrow y=3.5$ что не является натуральным
+\end{enumerate}
+
+\subsection{Задача 2}
+\begin{enumerate}
+    \item $\forall z(z > x \to z > y)$
+    \item $\forall a((\exists x (ax^2+4x-2=0))\leftrightarrow (a \ge -2))$
+    \item $\forall x((x^3-3x<3) \to (x < 10))$
+    \item $((\exists x(x^2+5x=w))\land(\exists y (4-y^2=w))) \to (-10 \le w \le 10)$
+\end{enumerate}
+
+\subsection{Задча 3}
+\begin{enumerate}
+    \item S(x) - дискретная математика это просто, U(x) - что-то в математике понимает, тогда $\forall x(S(x) \to \overline{U(x)})$ Если Влад прав, то отрицание этого утверждения. $\forall x(S(x) \land U(x))$
+    \item Может, но не обязано
+    \item Может, но не обязано
+    \item Не обязано и не может
+    \item Не обязано и не может
+    \item Может и обязано
+    \item Может и обязано
+    \item Может и не обязано
+    \item Не обязано и не может
+    \item Не обязано и не может
+\end{enumerate}
+
+\subsection{Задача 4}
+\begin{enumerate}
+    \item х является простым числом, множество истинности - множество простых чисел.
+    \item х является наименьшим общим кратным чисел y и z. Множество истинности: ${x \in N| x = lcm(y, z)}={lcm(y, z)}$ lcm - least common divisor
+    \item Утверждение верно в поле вещественных чисел. Множество истинности - верно всегда
+    \item Для любого вещественного числа х существует ровно два различных вещественных квадратных корня. Множество истинности - верно всегда.
+\end{enumerate}
+
+\subsection{Задача 5}
+\begin{enumerate}
+    \item $\forall B S(A,B)$ - множество является пустым тогда и только тогда, когда оно является подмножеством любого множества
+    \item $\forall B S(B, A)$ - прикол в счётности, а точнее несчётности)
+    \item $S(B, A) = S(A, B)$
+    \item \begin{align*}
+        \exists X \big( 
+            & \neg \big( \forall Z \, S(X, Z) \big) \land S(X, A) \land \\
+            & \forall Y \big( S(Y, A) \land \neg \big( \forall Z \, S(Y, Z) \big) \rightarrow \\
+            & \quad \big( S(Y, X) \land S(X, Y) \big) \big) 
+        \big)
+        \end{align*}
+    \item \begin{align*}
+        \exists X \exists Y \big( 
+            & \text{одноэлементное}(X) \land 
+              \text{одноэлементное}(Y) \land \\
+            & \neg ( S(X, Y) \land S(Y, X) ) \land S(X, A) \land S(Y, A) \land \\
+            & \forall Z \big( S(Z, A) \land \text{одноэлементное}(Z) \rightarrow \\
+            & \quad ((S(Z, X) \land S(X, Z)) \lor (S(Z, Y) \land S(Y, Z))) \big) 
+        \big)
+        \end{align*}
+\end{enumerate}
+
+\subsection{Задача 6}
+\begin{enumerate}
+    \item $\overline{O} \to \overline{Д}$
+    \item Эквивалентно т.к контрапозиция
+    \item Обратное к исходному. Из того что кто-то ничего не делает, не следует, что он единственный, кто не ошибается.
+    \item Эквивалентно
+    \item не Эквивалентно, из того, что кто-то ошибается, не следует, что он обязательно что-то делает.
+    \item логически Эквивалентно, обращение исходного
+    \item логически Эквивалентно
+    \item логически Эквивалентно $\overline{Д \land \overline{O}} \to \overline{Д} \lor O \to Д \to O$
+    \item логически Эквивалентно $\overline{Д} \lor O \to Д \to O$
+    \item 1 - авежзи 2- бгд
+\end{enumerate}
+
+\subsection{Задача 7}
+\begin{enumerate}
+    \item Доказательство пытается вывести значение S, но при этом на шаге 2 мы уже используем S для доказательства для других треугольников. Типо x = 2x - x решить.
+\end{enumerate}
+\end{document}
