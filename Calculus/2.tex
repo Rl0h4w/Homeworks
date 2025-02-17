@@ -107,6 +107,259 @@ d)
 \subsection{Задача 2}
 
 a)
+\[
+\frac{\partial f}{\partial x} = \frac{e^{\arctan(xy^3)}y^3}{1+x^2y^6}= \frac{1}{2} e^{\pi/4}
+\]
 
+\[
+\frac{\partial f}{\partial y} = \frac{3e^{\arctan(xy^3)}xy^2}{1+x^2y^6} = \frac{1}{2} e^{\pi/4}
+\]
+
+b)
+\[
+\frac{\partial f}{\partial x} = (3x+y)^{3x+y}(3+3\ln(3x+y)) = 3
+\]
+
+\[
+\frac{\partial f}{\partial y} = (3x+y)^{3x+y}(1+\ln(3x+y)) = 1
+\]
+
+\subsection{Задача 3}
+
+\[
+\sqrt{|xy|} \leftrightarrow 0 \le \sqrt{|x|}\sqrt{|y|} \le \frac{|x|+|y|}{2}
+\]
+по теореме о пределе промежуточной функции, сжатия, теореме о двух милиционерах предел нашей функции будет равен значению в 0, тогда функция непрерывна.
+
+
+\[
+f_x(0, 0) = \lim_{h \to 0} \frac{f(h, 0)-f(0, 0)}{h} = \lim_{h \to 0}\frac{0}{h} = 0
+\]
+
+\[
+f_y(0, 0) = \lim_{h \to 0} \frac{f(0, h)-f(0, 0)}{h} = \lim_{h \to 0}\frac{0}{h} = 0
+\]
+
+Таким образом в точке (0, 0) существуют обе частные производные.
+
+функция назвается дифференцируемой в точке, если 
+\[
+\Delta f(x, y) = \frac{\partial f}{\partial x}(x_0, y_0)\Delta x + \frac{\partial f}{\partial }(x_0, y_0)\Delta y + o(p)
+\]
+
+Подставляем, получаем
+\[
+f(x, y) = o(\sqrt{x^2+y^2})
+\]
+
+подставим y=x
+\[
+|x| = \sqrt{2}|x|
+\]
+Значит не дифференцируема.
+
+
+\subsection{Задача 5}
+
+Пользуясь эквивалентностями
+\[
+f(x, y) = |x|^a|y|^{0.5}
+\]
+
+Перейдем к полярным координатам: 
+
+\[
+f(a, \theta) = r^{\alpha+0.5}|\cos(\theta)|^\alpha|\sin(\theta)|^{0.5}
+\]
+
+При r стремящемся к 0 функция стремится к 0, если 
+\[
+\alpha > -0.5
+\]
+
+При отрицательных $\alpha$ возникает деление на ноль, поэтому  функция имеет смысл только при $\alpha > 0$
+
+Тогда функция непрерывна при $\alpha \ge 0$ по определению
+
+Найдем частные производные
+\[
+f_x(0, 0) = \lim_{h \to 0} \frac{f(h, 0)-f(0, 0)}{h} = 0
+\]
+
+\[
+f_y(0, 0) = \lim_{h \to 0} \frac{f(0, h)-f(0, 0)}{h} = 0
+\]
+
+таким образом, если функция дифференцируема, то ее дифференциал должен быть равен в точках 0, 0.
+
+\[
+\lim_{(x, y) \to (0, 0)} \frac{f(x, y)-0}{\sqrt{x^2+y^2}} = r^{\alpha-0.5}|\cos(\theta)|^\alpha|\sin(\theta)|^{0.5}
+\]
+
+если a > 0.5, то дифференцируема.
+
+\subsection{Задача 6}
+
+\[
+\Delta f(x, y) = \frac{\partial f}{\partial x}(x_0, y_0)\Delta x + \frac{\partial f}{\partial }(x_0, y_0)\Delta y + o(p)
+\]
+
+Найдем частные производные
+
+\[
+\frac{d}{dx}\left(\frac{\sqrt{|xy|} \arctan\left(\sqrt{x^2 + y^2}\right)}{\left(x^4 - \frac{x^2 y^2}{3} + y^4\right)^{1/6}}\right) =
+\]
+\[
+\frac{1}{2 \left(3 x^4 - x^2 y^2 + 3 y^4\right)^{7/6} |xy|^{3/2}} \times
+\]
+\[
+\left( 3^{1/6} \left(x y^2 \left(3 x^4 - x^2 y^2 + 3 y^4\right) \arctan\left(\sqrt{x^2 + y^2}\right) - \frac{2}{3} x^3 y^2 \left(6 x^2 - y^2\right) \arctan\left(\sqrt{x^2 + y^2}\right) \right. \right.
+\]
+\[
+\left. \left. + \frac{2 x^3 y^2 \left(3 x^4 - x^2 y^2 + 3 y^4\right)}{\sqrt{x^2 + y^2} \left(x^2 + y^2 + 1\right)} \right) \right)
+\]
+
+\[
+\frac{\partial}{\partial y}\left(\frac{\sqrt{|xy|} \arctan\left(\sqrt{x^2 + y^2}\right)}{\left(x^4 - \frac{x^2 y^2}{3} + y^4\right)^{1/6}}\right) =
+\]
+\[
+\frac{y \sqrt{|xy|}}{\sqrt{x^2 + y^2} \left(x^2 + y^2 + 1\right) \left(x^4 - \frac{x^2 y^2}{3} + y^4\right)^{1/6}} +
+\]
+\[
+\frac{x^2 y \arctan\left(\sqrt{x^2 + y^2}\right)}{2 \left(x^4 - \frac{x^2 y^2}{3} + y^4\right)^{1/6} |xy|^{3/2}} -
+\]
+\[
+\frac{\left(4 y^3 - \frac{2 x^2 y}{3}\right) \sqrt{|xy|} \arctan\left(\sqrt{x^2 + y^2}\right)}{6 \left(x^4 - \frac{x^2 y^2}{3} + y^4\right)^{7/6}}
+\]
+
+предел к 0 обоих производных даёт 0. тогда:
+
+\[
+\lim_{(x, y) \to (0, 0)} \frac{f(x, y)-0}{\sqrt{x^2+y^2}}
+\]
+
+Перейдем в полярные координаты:
+
+\[
+\frac{r^{1/3} \arctan(r) \sqrt{|\sin(2\theta)|}}{\sqrt{2} \left(1 - \frac{7}{12} \sin^2(2\theta)\right)^{1/6}} = 0
+\]
+
+таким образом можно сделать оценку для нашей функции, что она стремится к 0 не больше, чем $r^\frac{2}{3}$, и отсюда следует, что она дифференцируема
+
+\subsection{Задача 8}
+
+\[
+\frac{\partial f}{\partial x} = e^{x^2 y+\pi \cos x} \cdot (2xy - \pi \sin x)
+\]
+
+\[
+\frac{\partial f}{\partial y} = e^{x^2 y+\pi \cos x} \cdot (x^2)
+\]
+
+\[
+df = e^{-\pi/2+\pi \cos 1} \left[ -\pi(1 + \sin 1) dx + dy \right]
+\]
+
+\subsection{Задача 9}
+\[
+z = u^2/v
+\]
+
+\[
+d(\arctan(z)) = \frac{1}{1+z^2}dz
+\]
+
+\[
+d(f/g) = (g df - f dg)/g^2
+\]
+
+\[
+dz = d(u^2/v) = (vd(u^2)-u^2d(v))/v^2
+\]
+
+\[
+dz = (2uv du - u^2 dv) / v^2
+\]
+
+\[
+d(\arctg(u^2/v)) = (1 / (1 + (u^2/v)^2)) * [(2uv du - u^2 dv) / v^2]
+\]
+
+\[
+d(\arctg(u^2/v)) = (2uv du - u^2 dv) / (v^2 + u^4)
+\]
+
+\subsection{Задача 11}
+\[
+\frac{\partial u}{\partial x} = \frac{\partial}{\partial x} (xy) = y
+\]
+\[
+\frac{\partial u}{\partial y} = \frac{\partial}{\partial x} (xy) = x
+\]
+\[
+\frac{\partial v}{\partial x} = \frac{\partial}{ \partial x} (x^2-y^2) = 2x
+\]
+\[
+\frac{\partial v}{\partial y} = -2y
+\]
+
+\[
+\frac{\partial f}{\partial x} = y\frac{\partial f}{\partial u} + 2x \frac{\partial f}{\partial v}
+\]
+
+\[
+\frac{\partial f}{\partial x} = x \frac{\partial f}{ \partial u} - 2y \frac{\partial f}{\partial v}
+\]
+
+\subsection{Задача 12} 
+
+
+
+\begin{align*}
+\frac{\partial u}{\partial x} &= \frac{\partial}{\partial x} \left(\frac{x}{y}\right) = \frac{1}{y} \\
+\frac{\partial u}{\partial y} &= \frac{\partial}{\partial y} \left(\frac{x}{y}\right) = -\frac{x}{y^2} \\
+\frac{\partial u}{\partial z} &= \frac{\partial}{\partial z} \left(\frac{x}{y}\right) = 0
+\end{align*}
+
+\begin{align*}
+\frac{\partial v}{\partial x} &= \frac{\partial}{\partial x} \left(x^2 + y - z^2\right) = 2x \\
+\frac{\partial v}{\partial y} &= \frac{\partial}{\partial y} \left(x^2 + y - z^2\right) = 1 \\
+\frac{\partial v}{\partial z} &= \frac{\partial}{\partial z} \left(x^2 + y - z^2\right) = -2z
+\end{align*}
+
+
+\begin{align*}
+\varphi'_x = \frac{\partial \varphi}{\partial x} &= \frac{\partial f}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial f}{\partial v} \frac{\partial v}{\partial x} = f'_u \cdot \frac{1}{y} + f'_v \cdot 2x \\
+\varphi'_y = \frac{\partial \varphi}{\partial y} &= \frac{\partial f}{\partial u} \frac{\partial u}{\partial y} + \frac{\partial f}{\partial v} \frac{\partial v}{\partial y} = f'_u \cdot \left(-\frac{x}{y^2}\right) + f'_v \cdot 1 \\
+\varphi'_z = \frac{\partial \varphi}{\partial z} &= \frac{\partial f}{\partial u} \frac{\partial u}{\partial z} + \frac{\partial f}{\partial v} \frac{\partial v}{\partial z} = f'_u \cdot 0 + f'_v \cdot (-2z) = -2z f'_v
+\end{align*}
+
+
+\begin{align*}
+&2xz\varphi'_x + 2yz\varphi'_y + (2x^2 + y)\varphi'_z \\
+&= 2xz \left(f'_u \cdot \frac{1}{y} + f'_v \cdot 2x\right) + 2yz \left(f'_u \cdot \left(-\frac{x}{y^2}\right) + f'_v \cdot 1\right) + (2x^2 + y) \left(-2z f'_v\right) \\
+&= \frac{2xz}{y} f'_u + 4x^2z f'_v - \frac{2xyz}{y^2} f'_u + 2yz f'_v - (4x^2z + 2yz) f'_v \\
+&= \frac{2xz}{y} f'_u + 4x^2z f'_v - \frac{2xz}{y} f'_u + 2yz f'_v - 4x^2z f'_v - 2yz f'_v \\
+&= \left(\frac{2xz}{y} - \frac{2xz}{y}\right) f'_u + \left(4x^2z - 4x^2z\right) f'_v + \left(2yz - 2yz\right) f'_v \\
+&= 0 \cdot f'_u + 0 \cdot f'_v + 0 \cdot f'_v \\
+&= 0
+\end{align*}
+
+\subsection{Задача 14}
+\[
+\frac{\partial f}{\partial x} = -\frac{x}{(x^2+y^2+z^2)^{\frac{3}{2}}} = -\frac{1}{14\sqrt(14)}
+\]
+
+\[
+\frac{\partial f}{\partial x} = -\frac{x}{(x^2+y^2+z^2)^{\frac{3}{2}}} = -\frac{2}{14\sqrt(14)}
+\]
+
+\[
+\frac{\partial f}{\partial x} = -\frac{x}{(x^2+y^2+z^2)^{\frac{3}{2}}} = -\frac{3}{14\sqrt(14)}
+\]
+
+\[
+\nabla f(1;2;3) = -14\sqrt{14} (1;2;3)
+\]
 
 \end{document}
