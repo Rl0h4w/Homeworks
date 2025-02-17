@@ -40,7 +40,6 @@ vendor/
 *.lot
 *.toc
 *.synctex.gz
-*.pdf
 *.eps
 *.gz
 *.out
