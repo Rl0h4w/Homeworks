@@ -47,7 +47,7 @@ vendor/
 *.idx
 *.ilg
 *.ind
-
+*.git
 # IDEs and Editors
 .vscode/
 .idea/
