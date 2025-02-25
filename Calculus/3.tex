@@ -1,0 +1,403 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+
+    \Huge
+    \textbf{Домашнее задание}
+
+    \vspace{0.5cm}
+    \LARGE
+    По курсу: \textbf{Математический Анализ}
+
+    \vspace{1.5cm}
+
+    \textbf{Студент: Ростислав Лохов}
+
+    \vfill
+
+    \Large
+    АНО ВО Центральный университет\\
+    \vspace{0.3cm}
+    \today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Производная и дифференциал вектор-функции}
+
+\subsection{Задача 1}
+\[
+f(t)= g  \Rightarrow t = \frac{2\pi}{3}
+\]
+
+\[
+f'(t) = \begin{pmatrix}
+    -\sin(t) \\
+    \cos(t) \\
+    1
+\end{pmatrix} = 
+\begin{pmatrix}
+    -\frac{\sqrt{3}}{2} \\
+    -0.5 \\
+    1
+\end{pmatrix}
+\]
+
+
+\subsection{Задача 2}
+
+\[
+J = 
+\begin{pmatrix}
+    yz & xz & xy \\
+    y(1-z) & x(1-z) & -xy \\
+    -y & 1-x & 0 
+\end{pmatrix}
+\]
+
+\[
+\det(J) = xy^2
+\]
+
+\subsection{Задача 3}
+\[
+\begin{cases}
+    u_1 = x_1 + x_2 + x_3 + \cdots  \\
+    u_2 = 0.5x_1 + 0.5 x_2^2 + x_3^2 + \cdots \\
+    u_3 = \frac{1}{3}x_1 + \frac{1}{3}x_2^2 + \frac{1}{3}x_3^2 + \cdots
+\end{cases}
+\]
+
+Это транспонированная матрица Вандермонда, ее определитель нам известен, но будет с - из за транспонирования.
+
+\[
+\prod_{1\le j \le n}^{n} (x_j - x_i)
+\]
+
+\subsection{Задача 4}
+\[
+\begin{pmatrix}
+    0 & z & y \\
+    z & 0 & x \\
+    y & x & 0 \\
+\end{pmatrix} \cdot \begin{pmatrix}
+    dx \\
+    dy \\
+    dz \\
+\end{pmatrix} = 
+\begin{pmatrix}
+    0 & zdy & ydz \\
+    zdx & 0 & xdz \\
+    ydx & xdy &  0 \\
+\end{pmatrix}
+\]
+
+\subsection{Задача 5}
+\[
+\nabla f(x, y) = 
+\begin{pmatrix}
+    \frac{2x}{y^2} \\
+    \frac{-2x^2}{y^3}
+\end{pmatrix}
+\]
+
+H(f) = 
+\[
+\begin{pmatrix}
+    \frac{2}{y^2} & \frac{-4x}{y^3} \\
+    \frac{-4x}{y^3} & \frac{6x^2}{y^4}
+\end{pmatrix}
+\]
+
+\[
+    H(f(1, 1)) = \begin{pmatrix}
+    2 & -4 \\
+    -4 & 6
+    \end{pmatrix}
+\]
+
+\subsection{Задача 6}
+\[
+f(x) = \ln(\langle Ax; x\rangle)
+\]
+
+\[
+f(x+dx) - f(x) = \ln(\langle Ax+dx; x+dx\rangle) - \ln(\langle Ax; x \rangle)
+\]
+
+\[
+f(x+dx) - f(x) = \ln(\frac{\langle Ax+Adx; x+dx\rangle}{\langle Ax; x \rangle})
+\]
+
+\[
+f(x+dx) - f(x) =  \ln(\frac{\langle Ax; x \rangle + \langle Ax; dx \rangle + \langle Adx; x \rangle + \langle Adx; dx \rangle }{\langle Ax; x \rangle})
+\]
+
+\[
+f(x+dx) - f(x) =  \ln(1 + \frac{ \langle Ax; dx \rangle + \langle Adx; x \rangle + \langle Adx; dx \rangle}{\langle Ax; x \rangle})
+\]
+
+По эквивалентностям + опустим скалярное произведение $\langle Adx; dx \rangle$ т.к слишком мало
+
+\[
+f(x+dx) - f(x) =  \frac{ \langle Ax; dx \rangle + \langle Adx; x \rangle}{\langle Ax; x \rangle}
+\]
+
+Т.к оператор А симметричен, то:
+
+\[
+f(x+dx) - f(x) = 2 \frac{\langle Ax, dx \rangle}{\langle Ax; x \rangle}
+\]
+
+т.к $df = \langle \nabla f; dx \rangle$, то
+
+\[
+\nabla f = \frac{1}{\langle Ax; x \rangle} \nabla \langle Ax; x \rangle
+\]
+
+\[
+d\langle Ax; x \rangle = \langle Ax + Adx; x + dx \rangle - \langle Ax; x \rangle
+\]
+
+
+\[
+d\langle Ax; x \rangle = \langle Ax; x \rangle + \langle Ax; dx \rangle + \langle Adx; x \rangle + \langle Adx; dx \rangle - \langle Ax; x \rangle
+\]
+
+\[
+d\langle Ax; x \rangle = \langle Ax; dx \rangle + \langle Adx; x \rangle = 2 \langle Ax; dx \rangle = \langle 2Ax; dx \rangle
+\]
+
+Отсюда следует, что $\nabla f = \frac{2Ax}{\langle Ax; x \rangle}$
+
+Возьмем вспомогательную функцию $g(x) = df(x)$, тогда
+
+\[
+dg(x) = \langle \nabla df; dx \rangle = \langle \nabla (f(x+dx_1)-f(x)); dx \rangle
+\]
+
+\[
+dg(x) =  \langle \nabla (f(x+dx)-f(x)); dx \rangle
+\]
+
+т.к функция линейна по аргументам, то 
+
+\[
+ddf(x) =  \langle \nabla f(x+dx)-\nabla f(x); dx \rangle
+\]
+
+\[
+ddf(x) = \langle \frac{2A(x+dx)}{\langle A(x+dx); x+dx \rangle}-\frac{2Ax}{\langle Ax; x \rangle}; dx \rangle
+\]
+
+Лень сокращать, поэтому 
+
+\[
+H = \frac{2A(x+dx)}{\langle A(x+dx); x+dx \rangle}-\frac{2Ax}{\langle Ax; x \rangle}
+\]
+
+\subsection{Задача 7}
+\begin{enumerate}
+    \item бесконечное кол-во т.к $(x-y)(x+y) = 0$ для каждого x это уравнение выполняется, если $y=x$ или $y=-x$
+    \item 4 - $y=x \land y=-x \land y=|x| \land y= -|x|$
+    \item две - $y=x \land y=-x$ обе остальные недиф в нуле
+    \item две  - $y=x \land y=|x|$
+\end{enumerate}
+
+\subsection{Задача 8}
+\[
+F_x' =2yu \land F_y' = 2xu \land F_u' = 3u^2+2xy 
+\]
+
+\[
+\frac{\partial u}{\partial x} = -\frac{\partial F}{\partial x} \frac{\partial u}{\partial F} = 
+\]
+
+\[
+\frac{\partial u}{\partial y} = -\frac{\partial F}{\partial y} \frac{\partial u}{\partial F}
+\]
+
+\[
+u(0, 1) = -1
+\]
+
+\[
+\frac{\partial u}{\partial x} = \frac{2}{3} \land \frac{\partial u}{\partial y} = 0
+\]
+
+\subsection{Задача 11}
+\[
+\begin{cases}
+    z = u^3 + v^3 \\
+    y = u^2 + v^2 \\
+    x = u+v
+\end{cases}
+\]
+
+\[
+dz = 3u^2du + 3v^2dv \\
+dy = 2udu + 2vdv \\
+dx = du + dv 
+\]
+
+\[
+du = dx - dv \\
+\]
+
+\[
+dy = 2u(dx-dv) + 2vdv \\
+\]
+
+\[
+dv = \frac{dy-2udx}{2(v-u)}
+\]
+
+\[
+du = \frac{2vdx - dy}{2(v-u)}
+\]
+
+\[
+dz = 3u^2\frac{2vdx - dy}{2(v-u)} + 3v^2\frac{dy-2udx}{2(v-u)}
+\]
+
+\[
+dz = 1.5(-2uvdx+(u+v)dy)
+\]
+
+\[
+uv=\frac{x^2-y}{2}
+\]
+
+\[
+dz = 1.5(y-x^2)dx + 1.5xdy 
+\]
+
+\subsection{Задача 13}
+
+\[
+\frac{dy^2}{d^2x} + (x+y)(1+\frac{dy}{dx})^3 = 0
+\]
+
+\[
+\frac{dx}{dt} = \frac{du}{dt} +1
+\]
+
+\[
+\frac{dy}{dt} = \frac{du}{dt} -1
+\]
+
+\[
+\frac{dx}{dy} = \frac{\frac{du}{dt}+1}{\frac{du}{dt}-1}
+\]
+
+\[
+\frac{d^2x}{dy^2} = \frac{2u''}{(u'+1)^2}
+\]
+
+\[
+\frac{2u''(u'+1)+16u(u')^3}{(u'+1)^3}
+\]
+
+\subsection{Задача 14}
+
+\[
+\begin{cases}
+    x = p\cos(\varphi) \\
+    y = p \sin(\varphi)
+\end{cases}
+\]
+
+\[  
+\begin{cases}
+    \frac{dx}{dt} = \cos(\varphi) \cdot \frac{dp}{dt} - \sin(\varphi)p\frac{d\varphi}{dt} \\
+    \frac{dy}{dt} = \sin(\varphi)\frac{dp}{dt} + \cos(\varphi) p \cdot \frac{d\varphi}{dt}
+\end{cases}
+\]
+
+\[
+\begin{cases}
+    \cos(\varphi)\frac{dp}{dt} - \sin(\varphi)p\frac{d\varphi}{dt} = p\sin(\varphi)+kp^3\cos(\varphi)\\
+    \sin(\varphi)\frac{dp}{dt} + \cos(\varphi)p\frac{d\varphi}{dt} = -p\cos(\varphi)+kp^3\sin(\varphi)
+\end{cases}
+\]
+
+\[
+\begin{cases}
+    \frac{d\varphi}{dt} = -1
+    \frac{dp}{dt} = kp^3
+\end{cases}
+\]
+
+\subsection{Задача 15}
+
+\[
+(y-z)\frac{dz}{dx} + (y+z)\frac{dz}{dy} = 0 
+\]
+
+\[
+\begin{cases}
+    u = y-z \\
+    v = y + z 
+\end{cases}
+\]
+
+\[
+\frac{du}{dx} = 0 \land \frac{dv}{dx} = 0 \land \frac{du}{dy} = 1 \land \frac{dv}{dy} = 1
+\]
+
+\[
+\frac{dz}{dy} = \frac{dz}{du}\frac{du}{dy} + \frac{dz}{dv}\frac{dv}{dy}
+\]
+
+\[
+\begin{cases}
+    \frac{dz}{du} = -0.5 \\
+    \frac{dz}{dv} = 0.5
+    \frac{dz}{dy} = 0
+\end{cases}
+\]
+
+
+
+\end{document}

@@ -1,14 +1,15 @@
 package org.example.figure;
 
-import java.lang.Math;
-
 public class Point {
-    double x;
-    double y;
+    public double x;
+    public double y;
 
-    public double get_distance(Point a, Point b) {
-        return Math.sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
     }
 
-    
+    public double getDistanceTo(Point b) {
+        return Math.sqrt((b.x - this.x) * (b.x - this.x) + (b.y - this.y) * (b.y - this.y));
+    }
 }

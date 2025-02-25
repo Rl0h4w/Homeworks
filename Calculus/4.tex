@@ -1,0 +1,405 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Примеры задач(безусловной) оптимизации}
+
+\subsection{Задача 1}
+
+\[
+	u(x; y) = y^3 + 3yx^2-39y-36x+26
+\]
+
+\[
+	du = 3y^2 dy + 3 x^2 dy + 6 xy dx - 39dy -36dx
+\]
+
+\[
+    \begin{cases}
+        3y^2+3x^2-39 = 0 \\
+        6xy-36 = 0
+    \end{cases}
+\]
+
+\[
+(2, 3) \land (3, 2) \land (-3, -2) \land (-2, -3)
+\]
+
+\[
+	d^2u = 6ydy^2 + 6xdxdy + 6(xdy+ydx)dx 
+\]
+
+\[
+d^2u = 6ydy^2+12x dxdy+ 6y dx^2
+\]
+
+\[
+\begin{pmatrix}
+	6y & 6x \\
+	6x & 6y
+\end{pmatrix}
+\]
+
+\begin{enumerate}
+	\item (2, 3): $\delta_1 = 12$, $\delta_2 = 180$ - положительно определена - минимум
+	\item (3, 2): $\delta_1 = 18$, $\delta_2 = -180$ - неопределена
+	\item (-2, -3): $\delta_1 = -12$, $\delta_2 = 180$ - отрицательно определена - максимум
+	\item (-3, -2): $\delta_1 = -18$, $\delta_2 = -180$ - неопределена
+\end{enumerate}
+
+\subsection{Задача 2}
+
+\[
+u(x; y; z) = \frac{1}{z} + \frac{z}{y} + \frac{y}{x} + x + 1
+\]
+
+\[
+du = -\frac{1}{z^2}dz + \frac{ydz-zdy}{y^2} + \frac{xdy - ydx}{x^2} + dx 
+\]
+
+\[
+du = dx + \frac{dy}{x} - \frac{y}{x^2} dx - \frac{dz}{z^2} + \frac{dz}{y} - \frac{z}{y^2} dy
+\]
+
+\[
+du = \left(1 - \frac{y}{x^2} \right) dx + \left(\frac{1}{x} - \frac{z}{y^2} \right) dy + \left(\frac{1}{y} - \frac{1}{z^2} \right) dz
+\]
+
+\[
+\begin{cases}
+	1 - \frac{y}{x^2} = 0 \\
+	\frac{1}{x} - \frac{z}{y^2} = 0 \\
+	\frac{1}{y} - \frac{1}{z^2}  = 0
+\end{cases}
+\]
+
+\[
+(-1, 1, -1) \land (1, 1, 1)
+\]
+
+\[
+\begin{pmatrix}
+	\frac{2y}{x^3} & \frac{-1}{x^2} & 0 \\
+	-\frac{1}{x^2} & \frac{2z}{y^3} & \frac{-1}{y^2} \\
+	0 & \frac{-1}{y^2} & \frac{2}{z^3}
+\end{pmatrix}
+\]
+
+\[
+H(1, 1, 1) = 
+\begin{pmatrix}
+	2& -1& 0 \\
+	-1& 2& -1 \\
+	0 &-1& 2 
+\end{pmatrix}
+\]
+
+\[
+H(-1, 1, -1) = 
+\begin{pmatrix}
+	-2& -1& 0 \\
+	-1& -2& -1 \\
+	0 &-1& -2 
+\end{pmatrix}
+\]
+
+\begin{enumerate}
+	\item H(1, 1, 1)  - положительно определенная, все три алгебраических дополнения больше 0 - локальный минимум
+	\item H(-1, 1, -1) - отрицательно определенная, алгебраические дополнения чередуются - локальный максимум
+\end{enumerate}
+
+
+
+\subsection{Задача 3}
+\[
+u(x;y): x^3-y^2+u^2-3x+4y+u-8=0
+\]
+
+\[
+3x^2dx-2ydy+2udu-3dx+4dy+du
+\]
+
+т.к в стационарных точках du = 0, то
+
+\[
+3x^2dx-2ydy-3dx+4dy = 0
+\]
+
+\[
+(3x^2-3)dx + (4-2y)dy = 0
+\]
+
+\begin{enumerate}
+	\item $1, 2, 2$
+	\item $1, 2, -3$
+	\item $-1, 2, 1$
+	\item $-1, 2, -2$
+\end{enumerate}
+
+\[
+6xdx^2-2dy^2+2du^2
+\]
+
+\[
+H = 
+\begin{pmatrix}
+	6x & 0 & 0 \\
+	0 & -2 & 0 \\
+	0 & 0 & 2
+\end{pmatrix}
+\]
+
+По критерию сильвестра найдем определенность матрицы: 
+
+\begin{enumerate}
+	\item $1, 2, 2$: $\delta_1 = 6, \delta_2 = -12, \delta_3 = -24$ - неопределена
+	\item $1, 2, -3$: $\delta_1 = 6, \delta_2 = -12, \delta_3 = -24$ - неопределена
+	\item $-1, 2, 1$: $\delta_1 = -6, \delta_2 = +12, \delta_3 = -24$ - отрицательно определенная, локальный максимум
+	\item $-1, 2, -2$: $\delta_1 = -6, \delta_2 = +12, \delta_3 = -24$ - отрицательно определенная, локальный максимум
+\end{enumerate}
+
+\subsection{Задача 4}
+\[
+(x-y)^2+4x-4y+5
+\]
+
+\[
+((x-y)^2+4(x-y)+4)+1 = u
+\]
+
+\[
+((x-y)+2)^2+1 = u
+\]
+
+функция имеет только глобальный минимум u=1
+
+\subsection{Задача 5}
+
+\[
+u = x^4+y^4-2x^2
+\]
+
+\[
+du = 4x^3dx +4y^3dy-4xdx
+\]
+
+\[
+du = (4x^3-4x)dx+4y^3dy
+\]
+
+\[
+\begin{cases}
+	4x(x^2-1) = 0 \\
+	y^3=0
+\end{cases}
+\]
+
+\[
+x, y = (-1, 0), (0, 0), (1, 0)
+\]
+
+\[
+d^2u = 12x^2d^2x+12y^2d^2y-4d^2x
+\]
+
+\[
+d^2u = (12x^2-4)d^2x + 12y^2d^2y
+\]
+
+\[
+H = \begin{pmatrix}
+	12x^2-4 & 0 \\
+	0 & 12y
+\end{pmatrix}
+\]
+
+рассмотрим бесконечно малые приращения в точке (0, 0) отдельно по каждому аргументу: 
+
+\[
+u(\delta, 0) = \delta^4
+\]
+
+\[
+u(0, \delta) = \delta^4-2\delta^2  = \delta^2(\delta^2-2)
+\]
+
+при $\delta$ от 0 до $\sqrt{2}$ знаки будут отличаться, значит не экстремум.
+
+Далее попробуем найти решение аналитически.  Разделим график на две обьемные фигуры и спроецируем их на плостость uy:
+
+В таком случае графиком будет гипербола и минимумом функции будет являться u = -1. В точке u=-1 x принимает значения $\pm 1$, а y - 0. Таким образом (-1, 0), (1, 0) - экстремумы
+
+\subsection{Задача 6}
+
+\[
+||Ax-b||^2 +\lambda^2||x||^2= (Ax-b)^T(Ax-b) +\lambda x^Tx= x^TA^TAx-b^TAx-x^TA^Tb+b^Tb +\lambda^2 x^Tx= 
+\]
+
+\[
+L(x) = x^T(A^TA+\lambda^2I)x-2x^TA^Tb+b^Tb
+\]
+
+\[
+\nabla L(x) = 2(A^TA+\lambda^2I)x-2A^Tb = 0
+\]
+
+Если матрица A обратима:
+\[
+x = (A^TA+\lambda^2I)^{-1}A^Tb
+\]
+
+Т.к х существует если матрица обратима и функция имеет единственный глобальный минимум (функция регрессии с регуляризацией) то матрица положительно определена, следовательно минимум - х
+
+\subsection{Задача 7}	
+
+\[
+\begin{cases}
+	Q(k, l) = 50k^2l^{0.5} \\
+	k=80-l
+\end{cases}
+\]
+
+\[
+	\begin{cases}
+		Q(k, l) = 50(80-l)^2l^{0.5}\\
+		k=80-l
+	\end{cases}
+\]
+
+\[
+dl = \frac{125(x^2-96x+1280)}{\sqrt{x}} = 0
+\]
+
+\[
+l = 16 \Rightarrow k = 64
+\]
+
+\subsection{Задача 8}
+
+\[
+\begin{cases}
+	x = \pm\sqrt{9+y^2} \\
+	u(y) = 6 \mp 5\sqrt{9+y^2} - 4y
+\end{cases}
+\]
+
+\[
+	\begin{cases}
+		x = \pm\sqrt{9+y^2} \\
+		du = -4 \mp \frac{5y}{\sqrt{9+y^2}} = 0
+	\end{cases}
+\]
+
+\[
+\begin{cases}
+	x = \pm \sqrt{9+y^2} \\
+	y = \pm 4
+\end{cases}
+\]
+
+\[
+x = \pm 5 \land y = \pm 4
+\]
+
+\[
+x, y = (5, 4) \lor x, y = (4, 5)
+\]
+
+\subsection{Задача 11}
+\[
+\begin{cases}
+	u=(x-y)(x+y) \\
+	x^2-2x+1+y^2\le 1
+\end{cases}
+\]
+исследуем на экстремумы:
+
+\[
+du = 2xdx+2ydy
+\]
+
+\[
+d^2u = 2d^2x+2d^2y
+\]
+
+т.е в точке (0, 0) существует, локальный минимум, положительно определенная форма. Функция положительно определена на $\mathbb{R}^2$
+
+
+Воспользуемся методом Лагранжа для исследования границ
+
+\[
+L(x, y, \lambda) = x^2-y^2-\lambda((x-1)^2y^2-1)
+\]
+
+при y=0 x=2 или x=0 u=4 или u = 0
+
+при $\lambda = -1$ x = 0.5 $y = \pm 0.5\sqrt{3}$ $u=-0.5$
+
+Внутренняя точка 0, граничные точки - 4, 0, -0.5
+
+Максимум 4 (2, 0), минимум -0.5 (0.5, $\pm 0.5\sqrt{3}$)
+
+
+\end{document}
