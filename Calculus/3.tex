@@ -104,33 +104,47 @@ J =
 \[
 \begin{cases}
     u_1 = x_1 + x_2 + x_3 + \cdots  \\
-    u_2 = 0.5x_1 + 0.5 x_2^2 + x_3^2 + \cdots \\
-    u_3 = \frac{1}{3}x_1 + \frac{1}{3}x_2^2 + \frac{1}{3}x_3^2 + \cdots
+    u_2 = 0.5x_1^2 + 0.5 x_2^2 + x_3^2 + \cdots \\
+    u_3 = \frac{1}{3}x_1^3 + \frac{1}{3}x_2^3 + \frac{1}{3}x_3^3 + \cdots \\
+    \cdots
 \end{cases}
 \]
 
-Это транспонированная матрица Вандермонда, ее определитель нам известен, но будет с - из за транспонирования.
+\[
+\frac{\partial u_i}{\partial x_j} = \frac{1}{i}\cdot i \cdot {x_j}^{i-1}={x_j}^{i-1}
+\]
 
 \[
-\prod_{1\le j \le n}^{n} (x_j - x_i)
+\begin{pmatrix}
+    {x_1}^{0} & {x_2}^{0} & {x_3}^{0} & \cdots \\
+    {x_1}^{1} & {x_2}^{1} & {x_3}^{1} & \cdots \\ 
+    {x_1}^{2} & {x_2}^{2} & {x_3}^{2} & \cdots \\
+    \cdots 
+\end{pmatrix}
+\]
+
+Это транспонированная матрица Вандермонда, ее определитель нам известен, но будет со знаком - из за транспонирования.
+
+\[
+\prod_{1\le i \le j \le n}^{n} (x_j - x_i)
 \]
 
 \subsection{Задача 4}
 \[
+J =
 \begin{pmatrix}
-    0 & z & y \\
-    z & 0 & x \\
-    y & x & 0 \\
+    yz & xz & xy \\
+    y-yz & x-xz & -xy \\
+    -y & 1-x & 0 \\
 \end{pmatrix} \cdot \begin{pmatrix}
     dx \\
     dy \\
     dz \\
-\end{pmatrix} = 
-\begin{pmatrix}
-    0 & zdy & ydz \\
-    zdx & 0 & xdz \\
-    ydx & xdy &  0 \\
-\end{pmatrix}
+\end{pmatrix} 
+\]
+
+\[
+Det(J) = xy^2z(1-x)+x^2y^2z+xy^2(1-z) = xy^2
 \]
 
 \subsection{Задача 5}
@@ -336,7 +350,7 @@ dz = 1.5(y-x^2)dx + 1.5xdy
 \]
 
 \[
-\frac{2u''(u'+1)+16u(u')^3}{(u'+1)^3}
+\frac{2u''_{tt}(u'_{t}+1)+16u(u'_{t})^3}{(u'_{t}+1)^3}
 \]
 
 \subsection{Задача 14}
