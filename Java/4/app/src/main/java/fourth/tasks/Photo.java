@@ -1,4 +1,4 @@
-package app.src.main.java.fourth.tasks;
+package fourth.tasks;
 
 public class Photo extends Content {
     private int height;

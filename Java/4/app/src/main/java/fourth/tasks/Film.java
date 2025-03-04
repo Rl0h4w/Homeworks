@@ -1,4 +1,4 @@
-package app.src.main.java.fourth.tasks;
+package fourth.tasks;
 
 public class Film extends Content {
     public Film(String title, String description, String director, String[] actors) {

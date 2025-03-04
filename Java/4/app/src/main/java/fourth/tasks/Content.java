@@ -1,4 +1,4 @@
-package app.src.main.java.fourth.tasks;
+package fourth.tasks;
 
 public abstract class Content {
     public Content(String title, String description) {

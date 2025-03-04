@@ -1,6 +1,12 @@
-package app.src.main.java.fourth.tasks;
+package fourth.tasks;
 
-public abstract class Figures {
+public interface Shape {
+    double getPerimeter();
+
+    double getArea();
+}
+
+public abstract class Figures implements Shape {
     public String color;
 
     Figures(String color) {
@@ -80,5 +86,43 @@ public class Rectangle extends Figures {
     @Override
     protected double getArea() {
         return a * b;
+    }
+}
+
+public class ShapeStat {
+    public static int CountShapesGreatArea(Shape[] shapes) {
+        int count = 0;
+        for (Shape shape : shapes) {
+            if (shape.getPerimeter() > shape.getArea()) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+public class Scene implements Shape {
+    private Shape[] shapes;
+
+    public Scene(Shape[] shapes) {
+        this.shapes = shapes;
+    }
+
+    @Override
+    public double getPerimeter() {
+        double totalPerimeter = 0;
+        for (Shape shape : shapes) {
+            totalPerimeter += shape.getPerimeter();
+        }
+        return totalPerimeter;
+    }
+
+    @Override
+    public double getArea() {
+        double totalArea = 0;
+        for (Shape shape : shapes) {
+            totalArea += shape.getArea();
+        }
+        return totalArea;
     }
 }
