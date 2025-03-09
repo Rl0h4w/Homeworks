@@ -1,0 +1,213 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Что такое первообразная и неопределенный интеграл}
+
+\subsection{Задача 1}
+
+\begin{enumerate}
+    \item $\int (x(x(x)^{0.5})^{0.5})^{0.5}dx=\int x^{\frac{7}{8}}=\frac{8x^{\frac{15}{8}}}{15} + С$
+    \item $\int (4e)^x dx = \frac{(4e)^x}{2\ln(2)+1} + С$
+    \item $\int \frac{1}{5^x}+\frac{1}{2^x} dx = \int 5^{-x} + \int 2^{-x} = -\frac{2^{-x}}{\ln(2)} - \frac{5^{-x}}{\ln(5)} + С$
+\end{enumerate}
+
+
+\subsection{Задача 2}
+\begin{enumerate}
+    \item $\int \cot^2x dx = \int \frac{\cos^2(x)}{\sin^2x} dx= \int \frac{1-\sin^2x}{\sin^2x} dx$
+    \item $\int \frac{1}{\sin^2x}-1 dx= -\cot x -x + С$
+\end{enumerate}
+
+\subsection{Задача 3}
+\begin{enumerate}
+    \item $2\ln(|x|)-\frac{3}{2}\ln(|x^2|)=2\ln(-x)+\frac{3}{x}+C$
+    \item В точке (-1, 1): $4=C$
+    \item $F(x) = 2\ln(-x)+\frac{3}{x}+4$
+\end{enumerate}
+
+\subsection{Задача 4}
+\[f(x) = 
+\begin{cases}
+    -2, x < -1
+    2x, -1 \le x < 1
+    2, x\ge 1
+\end{cases}
+\]
+
+\[F(x)
+    \begin{cases}
+        -2x+C_1, x < -1
+        x^2+C_2, -1 \le x < 1
+        2x+C_3, x\ge 1
+    \end{cases}
+\]
+
+Необходимо обеспечить непрерывность в точках -1, 1
+
+\[
+F(x) = 
+\begin{cases}
+    -2x+C, x < -1
+    x^2+1+C, -1 \le x < 1
+    2x+C, x\ge 1
+\end{cases}
+\]
+
+\subsection{Задача 6}
+\begin{enumerate}
+    \item $\int \sqrt[5]{5x^3+1}dx$
+    \item $u(x) = 5x^3+1$
+    \item $du = 15x^2dx \Leftrightarrow x^2dx = \frac{1}{15}du$
+    \item $\int \sqrt[3]{5x^3+1}dx = \int \sqrt[3]{u}\frac{1}{15}du = \frac{u^{\frac{4}{3}}}{20} + C$
+\end{enumerate}
+
+\subsection{Задача 7}
+\begin{enumerate}
+    \item $\int \frac{dx}{2x^2-5x+7}$
+    \item $(2x^2-5x+3.125)+3.875$
+    \item $(\sqrt{2}x-1.25\sqrt{2})^2+3.875$
+    \item $u = \sqrt{2}x-1.25\sqrt{2}$
+    \item $du =\sqrt{2}dx$
+    \item $\int \frac{du}{2u^2+7.75}$
+    \item $\frac{1}{\sqrt{7.75}}\arctan \frac{\sqrt{2}u}{\sqrt{7.75}}+C$
+\end{enumerate}
+
+\subsection{Задача 8}
+\begin{enumerate}
+    \item $\int \frac{x dx}{(1-x)^{12}}$
+    \item $u(x) = 1-x$
+    \item $du=-dx$
+    \item $\int \frac{u-1}{u^{12}}du = \int \frac{1}{u^{11}}-\int \frac{1}{u^{12}}$
+    \item $\frac{1}{11(1-x)^{11}}-\frac{1}{10(1-x)^{10}}+C$
+\end{enumerate}
+
+\subsection{Задача 9}
+\begin{enumerate}
+    \item $\int \frac{\ln(x)^2}{x}dx$
+    \item $u(x)=\ln(x)$
+    \item $x=e^{u(x)}$
+    \item $du=\frac{1}{x} dx$
+    \item $\int u^2du = \frac{\ln(x)^3}{3}+C$
+\end{enumerate}
+
+\subsection{Задача 10}
+\begin{enumerate}
+    \item $\int \frac{\ln(4x) - \ln(2)}{x\ln(4x)}$
+    \item $\ln(4x) = u$
+    \item $du = \frac{1}{x}dx$
+    \item $xdu = dx$
+    \item $\int \frac{u-\ln(2)}{u} = \int 1-\frac{\ln(2)}{u}$
+    \item $\ln(4x)-\ln(2)\ln(\ln(4x))+C$
+\end{enumerate}
+
+
+\subsection{Задача 13}
+\begin{enumerate}
+    \item $x = tg(t)$
+    \item $dx = \sec^2t dt$
+    \item $\int \sqrt{1+tg(t)^2}\sec^2t dt = \int |\sec(t)|\sec^2(t) dt$
+    \item Пусть $t \in [-0.5\pi, 0.5\pi ]$
+    \item $\int \sec^3(t) dt = \sec(t)\tan(t)  - \int \tan(t) \sec(t) \tan(t) dt$
+    \item Далее используя формулу интегрирования по частям
+    \item $\sec(t)\tan(t) - \int \sec(t(\sec(t)^2-1)) = \sec(t)\tan(t) - \int \sec(t)^3 dt + \int \sec(t) dt$
+    \item $0.5 (\sec(t)\tan(t) + \ln(|\sec(t) + \tan(t)|))$
+    \item $\sec(t) = \sqrt{x^2+1}$
+    \item $0.5 (x\sqrt{x^2+1} + \ln(|\sqrt{x^2+1} + x|))+C$
+\end{enumerate}
+
+\subsection{Задача 15}
+\begin{enumerate}
+    \item $\int \frac{\sqrt{(9-x^2)^3}}{x^6}dx$
+    \item заменим $x$ на $3\sin(t)$ т.к функция ограничена
+    \item $\int \frac{\sqrt{(9-9\sin(t)^2)^3}}{3^6\sin(t)^6}dx$
+    \item $\int \frac{\sqrt{(9\cos(t))^6}}{\sin(t)^6}dx$
+    \item $\int \frac{1}{9}\cot^4(t)\cosec^2(t)dt$
+    \item $u = \cot(t)$
+    \item $du = -\cosec(t)^2dt$
+    \item $\frac{1}{9}\int u^4du = -\frac{u^5}{45}+C = -\frac{(9-x^2)^{\frac{5}{2}}}{45x^5}+C$
+\end{enumerate}
+
+\subsection{Задача 19}
+\begin{enumerate}
+    \item $\int \ln(x+\sqrt{4+x^2})dx$
+    \item $u = \ln(x + \sqrt{4 + x ^ 2})$
+    \item $dv = dx \Rightarrow v=x$
+    \item $x\ln(x+\sqrt{4+x^2})-\int \frac{x}{\sqrt{4+x^2}}dx$  $t=4+x^2$  $dt = 2xdx $
+    \item $\int \frac{1}{2\sqrt{t}}dt = 2t^{0.5}+C = \sqrt{4+x^2}$
+    \item $x\ln(x+\sqrt{4+x^2})-\sqrt{4+x^2}+C$
+\end{enumerate}
+
+\subsection{Задача 20}
+\begin{enumerate}
+    \item $\int e^x \cos(x)dx$ $u = e^x$ $dv = \cos(x) dx$
+    \item $e^x=u$ $dv = -\sin(x)dx$
+    \item $e^x\cos(x)-\int e^x\sin(x)dx$
+    \item $\int e^x \sin(x)dx = e^x\sin(x)-\int e^x \cos(x)dx$
+    \item $\int e^x\cos(x)dx = e^x\cos(x) + e^x\sin(x) - \int e^x\cos(x)dx$
+    \item $\int e^x\cos(x)dx = 0.5e^x(\sin(x)+\cos(x)) + C$
+\end{enumerate}
+
+\end{document}  
