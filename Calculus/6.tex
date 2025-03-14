@@ -1,0 +1,549 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Интегрирование дробно-рациональных функций}
+
+\subsection{Задача 1}
+
+\begin{enumerate}
+    \item $\int \frac{xdx}{2x^2-3x-2}=\int \frac{xdx}{(2x+1)(x-2)}$
+    \item $\int \frac{A}{2x+1}+\frac{B}{x-2}=\int \frac{xdx}{(2x+1)(x-2)}$
+    \item $\int \frac{A(x-2)+B(2x-1)}{(2x-1)(x-2)} = \int \frac{xdx}{(2x+1)(x-2)}$
+    \item $A(x-2)+B(2x-1) = x$
+    \item $B=1.5 \land A = -\frac{1}{3}$
+    \item $\int \frac{1.5}{x-2} - \frac{1}{3(2x+1)} = 1.5\ln(|x-2|)-\frac{\ln(|2x+1|)}{6}+C$
+\end{enumerate}
+
+\subsection{Задача 2}
+
+\begin{enumerate}
+    \item $\int \frac{x(x-1)(x-2)}{(x-1)(x^2+x+1)}dx = \int \frac{x^2+x+1-1-3x}{(x^2+x+1)}dx = \int 1 - \frac{3x+1}{x^2+x+1}dx$
+    \item $x - \int \frac{3x+1}{x^2+x+1} dx = x - \int \frac{2x+1}{x^2+x+1}dx + \int \frac{x}{x^2+x+1}$
+    \item $u = x^2+x+1$ $du = (2x + 1)dx$
+    \item $\int \frac{3x+1}{x^2+x+1} dx = \int du/u = \ln(|2x+1|)+C_1$
+    \item $\int \frac{x}{x^2+x+1} = \int \frac{x}{(x+0.5)^2+0.75}dx = \frac{1}{\sqrt{0.75}}\arctan{\frac{x}{\sqrt{0.75}}}+C_2$
+    \item $x - \int \frac{2x+1}{x^2+x+1}dx + \int \frac{x}{x^2+x+1} = \ln(|2x+1|) + \frac{1}{\sqrt{0.75}}\arctan{\frac{x}{\sqrt{0.75}}} + C$
+\end{enumerate}
+
+\subsection{Задача 3}
+
+\begin{enumerate}
+    \item $\int \frac{x^3-8x^2+15x-5}{(x-1)^2(x^2-4x+8)}dx$
+    \item Согласно основной теореме алгебры любой многочлен представим в виде произведения многочленов степени 1 и степени 2.
+    \item Степерь в числителе 3, в знаменателе 4, а значит это правильная дробь, следовательно можно ее представить в виде суммы элементарных дробей, где числитель будет с многочленом степени 1 или степени 2.
+    \item $\int \frac{x^3-8x^2+15x-5}{(x-1)^2(x^2-4x+8)} dx= \int (\frac{16}{25(x-1)} + \frac{3}{5(x-1)^2} + \frac{9(x-13)}{x^2-4x+8})dx$
+    \item $\frac{16}{25}\ln(|x-1|)+C_1$
+    \item $\frac{3}{5(x-1)} + C_2$
+    \item $\int \frac{9(x-13)dx}{x^2-4x+8} = 9 \int \frac{(x-2)-11}{(x-2)^2+4}dx = 9(\int \frac{x-2}{(x-2)^2+4}dx + \int \frac{11}{(x-2)^2+4})$
+    \item $\frac{16}{25}\ln(|x-1|) +\frac{3}{5(x-1)} +  4.5\ln((x-2)^2+4)+4.5\arctan(\frac{x-2}{2})+C$
+\end{enumerate}
+
+\subsection{Задача 4}
+
+\begin{enumerate}
+    \item $\int \frac{dx}{(x-2)^2(x+3)^3}$
+    \item $\int \frac{A}{(x-2)} + \frac{B}{(x-2)^2} + \frac{C}{(x+3)} + \frac{D}{(x+3)^2} + \frac{E}{(x+3)^3} dx$
+    \item $ \int \frac{A(x-2)(x+3)^3 + B(x+3)^3 + C(x-2)^2(x+3)^2 + D(x-2)^2(x+3) + E(x-2)^2}{(x-2)^2 (x+3)^3} dx = \int \frac{dx}{(x-2)^2(x+3)^3}$
+    \item $   1 = A(x-2)(x+3)^3 + B(x+3)^3 + C(x-2)^2(x+3)^2 + D(x-2)^2(x+3) + E(x-2)^2$
+    \item $1 = 125B \land 1 = 25E$
+\end{enumerate}
+\[
+\begin{array}{rcl}
+        1 &=& A(x^4+7x^3+9x^2-27x-54)\\[1mm]
+          &+& B(x^3+9x^2+27x+27)\\[1mm]
+          &+& C(x^4+2x^3-11x^2-12x+36)\\[1mm]
+          &+& D(x^3-x^2-8x+12)\\[1mm]
+          &+& E(x^2-4x+4)
+        \end{array}
+\]
+
+\[
+    \begin{cases}
+        A + C = 0, \\
+        7A + B + 2C + D = 0, \\
+        9A + 9B - 11C - D + E = 0, \\
+        -27A + 27B - 12C - 8D - 4E = 0, \\
+        -54A + 27B + 36C + 12D + 4E = 1
+        \end{cases}
+\]
+
+\[
+    A=-\frac{3}{625},\quad B=\frac{1}{125},\quad C=\frac{3}{625},\quad D=\frac{2}{125},\quad E=\frac{1}{25}
+\]
+
+\[
+    \frac{1}{(x-2)^2(x+3)^3}=-\frac{3}{625}\cdot\frac{1}{x-2}+\frac{1}{125}\cdot\frac{1}{(x-2)^2}+\frac{3}{625}\cdot\frac{1}{x+3}+\frac{2}{125}\cdot\frac{1}{(x+3)^2}+\frac{1}{25}\cdot\frac{1}{(x+3)^3}
+\]
+
+\[
+\int \frac{dx}{(x-2)^2(x+3)^3} = \frac{3}{625}\ln\left|\frac{x+3}{x-2}\right| - \frac{1}{125(x-2)}-\frac{2}{125(x+3)}-\frac{1}{50(x+3)^2}+C
+\]
+
+\subsection{Задача 5}
+\[
+\int \frac{x^3+x^2-4x+1}{(x^2+1)(x^2+1)}dx
+\]
+
+\[
+\int \frac{Ax+B}{x^2+1}+\frac{Cx+D}{(x^2+1)^2}dx = \int \frac{x^3+x^2-4x+1}{(x^2+1)(x^2+1)}dx
+\]
+
+\[
+\frac{(Ax+B)(x^2+1)+Cx+D}{(x^2+1)^2} = \frac{x^3+x^2-4x+1}{(x^2+1)(x^2+1)}
+\]
+
+\[
+\frac{Ax^3+Bx^2+(A+C)x+B+D}{(x^2+1)^2} = \frac{x^3+x^2-4x+1}{(x^2+1)(x^2+1)}
+\]
+
+\[
+A = 1, \quad B = 1, \quad C = -5, \quad D = 0
+\]
+
+\[
+\int \frac{x}{x^2+1}dx + \int \frac{1}{x^2+1}dx-4 \int\frac{x}{(x^2+1)^2}dx
+\]
+
+
+\[
+\int \frac{x}{x^2+1}dx: \quad u = x^2+1 \Rightarrow du = 2xdx \Longrightarrow \int \frac{1}{2u}du = 0.5\ln(x^2+1)+C_1
+\]
+
+\[
+\int \frac{1}{x^2+1}dx = \arctan(x)+C_2
+\]
+
+\[
+\int\frac{x}{(x^2+1)^2}dx = \int\frac{x}{x^4+2x^2+1}dx: \quad u = x^2 \Rightarrow  du = 2xdx
+\]  
+
+\[
+\int 0.5(u+1)^{-2}du = -\frac{1}{2(u+1)} + C_3
+\]
+
+\[
+0.5\ln(x^2+1) + \arctan(x)-\frac{5}{2(u+1)} + C
+\]
+
+\subsection{Задача 6}
+
+\[
+\int \frac{dx}{x^4(x^3+1)^2}: \quad u = x^{-3} x^3  \Rightarrow x^3 = \frac{1}{u^3} \Rightarrow x^3+1 = \frac{1+u^3}{u^3}
+\]
+
+\[
+\int \frac{dx}{x^4(x^3+1)^2} = \int \frac{u^2}{x^4(1+u)^2}\cdot (-\frac{1}{3}x^4du) = \int \frac{u^2}{(1+u)^2}dv
+\]
+
+\[
+v = 1+u \quad dv = du \Rightarrow \int \frac{v^2-2v+1}{v^2}dv
+\]
+
+\[
+    (1+u) - 2\ln|1+u| - \frac{1}{1+u} + C
+\]
+
+\[
+    \int \frac{dx}{x^4 (x^3+1)^2} = \frac{1}{3}\left(\frac{x^3}{x^3+1} + 2\ln\left|\frac{x^3+1}{x^3}\right| - \frac{x^3+1}{x^3}\right) + C
+\]
+
+
+\subsection{Задача 7}
+
+\[
+\int \frac{dx}{x^{11} + 2x^6 + x}
+\]
+
+\[
+    \int \frac{dx}{x(x^{10} + 2x^5 + 1)}
+\]
+
+\[
+u = x^5
+\]
+
+
+
+\[
+\int \frac{dx}{u(u+1)^2}
+\]
+
+\[
+    \int \frac{dx}{u(u+1)^2}  = \int \frac{A}{u} + \frac{B}{u+1} + \frac{C}{(u+1)^2} dx
+\]
+
+\[
+\int \frac{A(u+1)^2+Bu(u+1)+Cu}{u(u+1)^2} dx = \int \frac{dx}{u(u+1)^2}
+\]
+
+\[
+1 = Au^2+A2u+A+Bu^2+B+Cu
+\]
+
+\[
+A=1, \quad B=-1, \quad C=-1
+\]
+
+\[
+\int \frac{1}{u} - \frac{1}{u+1} - \frac{1}{(u+1)^2} dx
+\]
+
+\[
+\frac{1}{5} \left( \ln|u| - \ln|u + 1| + \frac{1}{u + 1} \right) + C
+\]
+
+\[
+\frac{1}{5} \left( \ln\left|\frac{x^5}{x^5 + 1}\right| + \frac{1}{x^5 + 1} \right) + C
+\]
+
+\subsection{Задача 8}
+
+\[
+\int \sin(x)\sin(2x)\sin(3x)dx
+\]
+
+\[
+\int (2\sin^2(x)\cos(x))(3\sin(x)-4\sin^3(x))dx
+\]
+
+\[
+\int 6\sin^3(x)\cos(x)-8\sin^5(x)\cos(x)
+\]
+
+\[
+t = \sin(x), \quad dt = \cos(x)dx \Longrightarrow \int 6\sin^3(x)\cos(x)-8\sin^5(x)\cos(x)dt = \int (6t^3-8t^5)dt = \frac{6t^4}{4}-\frac{8t^6}{6} + C
+\]
+
+\[
+1.5\sin^4(x) - \frac{4\sin^6(x)}{3} + C
+\]
+
+\subsection{Задача 9}
+\[
+\int \sinh(x)\sinh(7x)dx
+\]
+
+\[
+\int 0.5(\sinh(8x)-\sinh(-6x))
+\]
+
+\[
+\frac{1}{16}\sinh(8x)-\frac{1}{12}\sinh(6x)
+\]
+
+
+\subsection{Задача 10}
+\[
+\int \frac{dx}{\cos(x)} = \int \frac{\sec(x)(\sec(x)+\tan(x)) dx}{\sec(x)+\tan(x)}
+\]
+
+\[
+\frac{d}{dx} (\sec(x)+\tan(x)) = \sec(x)(\sec(x)+\tan(x))
+\]
+
+\[
+u = \sec(x)+\tan(x)
+\]
+
+\[
+\int \frac{du}{u} = \ln(|u|) + C = \ln(|\sec(x)+\tan(x)|)
+\]
+
+\subsection{Задача 11}
+
+\[
+\int \frac{dx}{\sinh(x)\cosh^2(x)} =\int \frac{d(\cosh(x))}{(1-\cosh(x))(1+\cosh(x))\cosh^2(x)}
+\]
+
+\[
+    \int \frac{d(\cosh(x))}{(1-\cosh^2(x))\cosh^2(x)} =  \int \frac{d(\cosh(x))}{1+\cosh(x)}
+\]
+\[
+\int (2\sin^2(x)\cos(x))(3\sin(x)-4\sin^3(x))dx
+\]
+
+\[
+\int 6\sin^3(x)\cos(x)-8\sin^5(x)\cos(x)
+\]
+
+\[
+t = \sin(x), \quad dt = \cos(x)dx \Longrightarrow \int 6\sin^3(x)\cos(x)-8\sin^5(x)\cos(x)dt = \int (6t^3-8t^5)dt = \frac{6t^4}{4}-\frac{8t^6}{6} + C
+\]
+
+\[
+1.5\sin^4(x) - \frac{4\sin^6(x)}{3} + C
+\]
+
+\subsection{Задача 12}
+
+\[
+\int \frac{dx}{2\cos^2(x)+\sin(x)\cos(x)+\sin^2(x)}dx
+\]
+
+\[
+\int \frac{dx}{\cos^2(x)(2+\tan(x)+\tan^2(x))}
+\]
+
+\[
+u = \tan(x) \Rightarrow du = \frac{1}{\cos^2(x)} dx
+\]
+
+\[
+\int \frac{du}{(u^2+u+2)} = \int \frac{du}{(u+0.5)^2+1.75}
+\]
+
+\[
+\frac{2}{\sqrt{7}} \arctan(\frac{\tan(x)+1}{\sqrt{7}}) + C
+\]
+
+\subsection{Задача 17}
+\[
+\int \sin^n(x)\cos^m(x)dx
+\]
+
+\[
+F(x)=\sin^{n-1}x \cos^{m+1}x
+\]
+
+\[
+    \frac{d}{dx}F(x)
+    =(n-1)\sin^{n-2}x \cos^{m+1}x\cdot\cos x
+    -(m+1)\sin^{n-1}x \cos^m x\cdot(-\sin x)
+\]
+
+
+\[
+    \frac{d}{dx}\bigl(\sin^{n-1}x \cos^{m+1}x\bigr)
+    =(n-1)\sin^{n-2}x \cos^{m+2}x-(m+1)\sin^n x \cos^m x
+\]
+
+\[
+(m+1+n-1)\sin^n x \cos^m x
+=(n-1)\sin^{n-2}x \cos^{m+2}x
+-\frac{d}{dx}\bigl(\sin^{n-1}x \cos^{m+1}x\bigr) 
+\]
+
+\[
+(m+n)\sin^n x \cos^m x=(n-1)\sin^{n-2}x \cos^{m+2}x
+-\frac{d}{dx}\bigl(\sin^{n-1}x \cos^{m+1}x\bigr)
+\]
+
+\[
+(m+n)I_{m,n}=(n-1)I_{m+2,n-2}-\sin^{n-1}x \cos^{m+1}x 
+\]
+
+\[
+I_{m,n}=-\frac{\sin^{n-1}x \cos^{m+1}x}{m+n}+\frac{n-1}{m+n}I_{m+2,n-2}
+\]
+
+Заметим, что если затем воспользоваться равенством
+\[
+I_{m+2,n-2}=I_{m,n-2}-(\text{выражение, связанное с }I_{m,n})
+\]
+то после преобразований получаем именно искомую формулу:
+\[
+I_{m,n}=-\frac{\sin^{n-1}x \cos^{m+1}x}{m+n}+\frac{n-1}{m+n} I_{m,n-2}
+\]
+Аналогичным образом доказывается и вторая формула.
+
+\[
+I_{4,6}=\int \sin^6 x \cos^4 x dx 
+\]
+
+\[
+I_{4,6}=-\frac{\sin^{5}x \cos^{5}x}{4+6}+\frac{6-1}{4+6} I_{4,4}
+=-\frac{\sin^{5}x \cos^{5}x}{10}+\frac{5}{10} I_{4,4} 
+\]
+
+\[
+I_{4,6}=-\frac{\sin^{5}x \cos^{5}x}{10}+\frac{1}{2} I_{4,4}  
+\]
+
+\[
+I_{4,4}=-\frac{\sin^{3}x \cos^{5}x}{4+4}+\frac{4-1}{8} I_{4,2}
+=-\frac{\sin^{3}x \cos^{5}x}{8}+\frac{3}{8} I_{4,2}  
+\]
+
+\[
+I_{4,2}=-\frac{\sin^{1}x \cos^{5}x}{4+2}+\frac{2-1}{6} I_{4,0}
+=-\frac{\sin x \cos^{5}x}{6}+\frac{1}{6} I_{4,0} 
+\]
+
+\[
+I_{4,0}=\int \cos^4 x dx 
+\]
+
+\[
+I_{4,0}=\int \cos^4 x dx
+=\frac{3x}{8}+\frac{\sin2x}{4}+\frac{\sin4x}{32}+C 
+\]
+
+\[
+I_{4,2}=-\frac{\sin x \cos^{5}x}{6}+\frac{1}{6}\left(\frac{3x}{8}+\frac{\sin2x}{4}+\frac{\sin4x}{32}\right)  
+\]
+
+\[
+I_{4,4}=-\frac{\sin^{3}x \cos^{5}x}{8}+\frac{3}{8} I_{4,2} 
+\]
+
+\[
+\int \sin^6 x \cos^4 x dx
+=-\frac{\sin^{5}x \cos^{5}x}{10}
+-\frac{\sin^{3}x \cos^{5}x}{16}
+-\frac{\sin x \cos^{5}x}{32}
++\frac{3x}{256}+\frac{\sin2x}{128}+\frac{\sin4x}{1024}+C 
+\]
+
+\subsection{Задача 18}
+\[
+\int (\frac{4}{x}+\frac{13}{x^2}+\frac{6}{x^3})e^{-4x}dx
+\]
+
+Предположим, что первообразная имеет вид $\frac{ax+b}{e^{4x}x^2}$
+
+Дифференцируем
+
+\[
+\begin{aligned}
+F'(x) &= \frac{d}{dx}\Bigl(e^{-4x}(ax+b)x^{-2}\Bigr)\\
+&= \Bigl(\frac{d}{dx}e^{-4x}\Bigr)(ax+b)x^{-2} + e^{-4x}  \frac{d}{dx}\Bigl[(ax+b)x^{-2}\Bigr]\\
+&= \Bigl(-4e^{-4x}\Bigr)(ax+b)x^{-2} + e^{-4x}\left(a  x^{-2} + (ax+b)(-2x^{-3})\right)\\
+&= -\frac{4e^{-4x}(ax+b)}{x^2} + e^{-4x}\left(\frac{a}{x^2} - \frac{2(ax+b)}{x^3}\right)\\
+&= e^{-4x}\left(-\frac{4(ax+b)}{x^2} + \frac{a}{x^2} - \frac{2(ax+b)}{x^3}\right)
+\end{aligned}
+\]
+
+\[
+    F'(x)=\frac{e^{-4x}}{x^3}\left(-4x(ax+b) + ax - 2(ax+b)\right) == \frac{e^{-4x}}{x^3}(4x^2+13x+6)
+\]
+
+$a=1, b=-3$
+
+\[
+F(x) = \frac{e^{-4x}(x+3)}{x^2}
+\]
+
+\[
+    \int \frac{4x^2+13x+6}{x^3} e^{-4x} dx = -\frac{e^{-4x}(x+3)}{x^2} + C
+\]
+
+\subsection{Задача 22}
+\[
+\int \frac{1-\sqrt{1+x+x^2}}{x\sqrt{1+x+x^2}}dx
+\]
+
+\[
+\sqrt{x^2+x+1} = (t + x)
+\]
+
+\[
+x^2+x+1=t^2+2xt+x^2
+\]
+
+\[
+x(2t-1)=1-t^2
+\]
+
+\[
+x = \frac{1-t^2}{2t-1}
+\]
+
+\[
+dx = \frac{-2t(2t-1)-(1-t^2)2}{(2t-1)^2} = \frac{-2(t^2-t+1)}{(2t-1)^2}dt
+\]
+
+\[
+t+x = \frac{t^2-t+1}{2t-1} = \sqrt{x^2+x+1}
+\]
+
+\[
+    \frac{1-t-x}{x(t+x)}
+    =\frac{-  (t-1)(t-2)/(2t-1)}{(1-t^2)(t^2-t+1)/(2t-1)^2}
+    =\frac{-  (t-1)(t-2)(2t-1)}{(1-t^2)(t^2-t+1)}.
+\]
+
+\[
+    \int\frac{dx}{x\sqrt{1+x+x^2}}
+    =\int \frac{- (t-1)(t-2)(2t-1)}{(1-t^2)(t^2-t+1)}\cdot\frac{-2(t^2-t+1)}{(2t-1)^2}  dt = -2\int \frac{t-2}{(t+1)(2t-1)}dt
+\]
+
+\[
+\frac{t-2}{(t+1)(2t-1)}=\frac{A}{t+1}+\frac{B}{2t-1}
+\]
+
+\[
+\frac{t-2}{(t+1)(2t-1)}=\frac{1}{t+1}-\frac{1}{2t-1}.
+\]
+
+\[
+    \ln\left|\frac{2t-1}{(t+1)^2}\right|-\ln|x|+C
+\]
+
+\[
+    \int \frac{1-\sqrt{1+x+x^2}}{x\sqrt{1+x+x^2}}dx
+    =\ln\left|\frac{2\sqrt{1+x+x^2}-2x-1}{x\Bigl(\sqrt{1+x+x^2}-x+1\Bigr)^2}\right|+C
+\]
+\end{document} 
