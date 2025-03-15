@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: Task Management API
+  version: "1.0.0"
+  description: API for managing tasks in the task management application.
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/tasks:
+    post:
+      summary: Create a new task
+      operationId: createTask
+      requestBody:
+        description: Task object that needs to be added
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201':
+          description: Task created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Bad Request. Invalid task input.
+  /api/tasks/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        description: Numeric ID of the task to get/update/delete
+        schema:
+          type: integer
+    get:
+      summary: Retrieve a task by ID
+      operationId: getTaskById
+      responses:
+        '200':
+          description: Task retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task not found
+    put:
+      summary: Update an existing task
+      operationId: updateTask
+      requestBody:
+        description: Task object with updated details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          description: Bad Request. Invalid task input.
+        '404':
+          description: Task not found
+    delete:
+      summary: Delete a task by ID
+      operationId: deleteTask
+      responses:
+        '204':
+          description: Task deleted successfully (No Content)
+        '404':
+          description: Task not found
+components:
+  schemas:
+    Task:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          example: 1
+        title:
+          type: string
+          example: "Buy groceries"
+        description:
+          type: string
+          example: "Milk, eggs, and bread"
+        status:
+          type: string
+          enum:
+            - pending
+            - in_progress
+            - completed
+          example: "pending"
+        dueDate:
+          type: string
+          format: date
+          pattern: '^\\d{4}-\\d{2}-\\d{2}$'
+          example: "2023-12-31"
+      required:
+        - title
+        - status
+        - dueDate
