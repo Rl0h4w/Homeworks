@@ -1,0 +1,219 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Интегрирование дробно-рациональных функций}
+
+\subsection{Задача 1}
+
+\begin{enumerate}
+    \item Разделим на n равных подинтервалов $\Delta x = \frac{b-a}{n}$
+    \item Выберем в качестве $\xi_i=a+i \Delta x$ правые концы.
+    \item $f(x_i)=x_i = a+\frac{i(b-a)}{n}$
+    \item $\sigma (f;r; \xi_r) = \sum_{i=1}^{n}(\frac{b-a}{n})(a+\frac{i(b-a)}{n}) = \sum_{i=1}^{n}a\frac{b-a}{n}+\frac{i(b-a)^2}{n^2}$
+    \item $\frac{-1}{2} \cdot \frac{(a - b)(-a + b + a n + b n)}{n}$
+\end{enumerate}
+
+\subsection{Задача 2}
+\begin{enumerate}
+    \item Нет, допустим $f(x)=\begin{cases}
+        \frac{1}{\sqrt{x}}, x>0 \\
+        0, x=0
+    \end{cases}$, интегрируема на отрезке от 0 до 1 и интеграл равен 2м.
+    \item $g(x)=x^2$
+    \item $f(g(x))=\frac{1}{x} \Rightarrow \int_{0}^{1}\frac{dx}{x}=+\infty$
+\end{enumerate}
+
+\subsection{Задача 3}
+\begin{enumerate}
+    \item $\lim_{n \to \infty} \sum_{k=1}^{n}\frac{\sqrt{k}}{n^\frac{3}{2}} = \lim_{n \to \infty} \frac{1}{n^{1.5}}\sum_{k=1}^{n}\sqrt{k} = \frac{1}{n^{1.5}}\int_{0}^{n}\sqrt{k}=\frac{1}{n^{1.5}}\cdot \frac{2}{3}n^{1.5}=\frac{2}{3}$ 
+\end{enumerate}
+
+\subsection{Задача 4}
+\begin{enumerate}
+    \item $y = nx$, $dy = ndx$
+    \item $\lim_{n \to \infty} \int_{0}^{1} \frac{f(y)}{n}dy = \frac{1}{n}\int_{0}^{n} {f(y)dy} = A$ по первой теореме о среднем
+\end{enumerate}
+
+
+\subsection{Задача 5}
+\begin{enumerate}
+    \item  Да, т.к сли функция интегрируема на отрезке, то она ограничена по определению интеграла по Риману.  Т.е по определению
+\end{enumerate}
+
+\subsection{Задача 6}
+
+\begin{enumerate}
+    \item Нулю, т.к первообразная равна константе, а производная константы будет равна 0.
+    \item $\sin(x^2)$
+    \item $2x\sqrt{1+x^4}$
+    \item $\frac{3x^2}{\sqrt{1+x^{12}}}-\frac{2x}{1+x^8}$
+\end{enumerate}
+
+\subsection{Задача 7}
+\begin{enumerate}
+    \item $f'(x) = 2x\frac{1-x^4}{2+x^8}$ - через замену переменных
+    \item $f'(x)= 0 \Rightarrow x=0, \quad x=-1, \quad x=1$
+\end{enumerate}
+
+\subsection{Задача 8}
+\begin{enumerate}
+    \item Тут к сожалению с ходу не получится ничего сказать, поэтому пусть $\varphi (x) = \arccos(x)$
+    \item Заметим, что экспоненцальная функция убывает от 0 до 1.
+    \item Оценка снизу $\frac{1}{3}\int_{0}^{1}\arccos(x)dx$
+    \item $\int_{0}^{1} \arccos(x)dx = \int \frac{x}{\sqrt{1-x^2}}dx = 1$
+    \item Тогда оценка сгизу равна $\frac{1}{3}$
+    \item Оценка сверху получится, если экспонента примет максимум при x=0, т.е экспонента будет равна 1, значит оценка сверху - 1. Неравенство строгое т.к $3^{-x}<1 \forall x > 0$
+    \item Что и требовалось доказать
+\end{enumerate}
+
+\subsection{Задача 9}
+\begin{enumerate}
+    \item $\int_{-2}^{-1}\frac{x+1}{x\cdot x\cdot (x-1)}dx = \int_{-2}^{-1} \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x-1} dx$
+    \item $\int_{-2}^{-1}\frac{-2}{x}-\frac{1}{x^2}+\frac{2}{x-1}dx$
+    \item $\ln(\frac{16}{9})-0.5$
+\end{enumerate}
+
+\subsection{Задача 10}
+\begin{enumerate}
+    \item $\int_{0}^{4}\frac{dx}{1+\sqrt{x}}$
+    \item $u = \sqrt{x}, \quad u^2 = x, \quad dx = 2udu$
+    \item $\int_{0}^{4} \frac{2udu}{1+u} = \int_{0}^{4} \frac{2(u+1)-2} = \int_{0}^{4} 2-\frac{2}{1+u} = 4-2\ln(3)$
+\end{enumerate}
+
+\subsection{Задача 11}
+\begin{enumerate}
+    \item $\int_{0}^{0.5\pi} \frac{dx}{1+\sin(x)+\cos(x)}$
+    \item Воспользуемся универсальной тригонометрической подстановкой
+    \item $\int_{0}^{1} \frac{\frac{2dt}{1+t^2}}{1+\frac{2t}{1+t^2}+\frac{1-t^2}{1+t^2}}$
+    \item $\int_{0}^{1} \frac{dt}{1+t} = \ln(2)$
+\end{enumerate}
+
+\subsection{Задача 12}
+\begin{enumerate}
+    \item $\int_{1}^{e} \frac{dx}{x\sqrt{1+\ln(x)}}$
+    \item $t = \ln(x), \quad dt = \frac{1}{x}dx$
+    \item $\int_{0}^{1} \frac{dt}{\sqrt{1+t}} = 2\sqrt{2}-2$
+\end{enumerate}
+
+\subsection{Задача 13}
+\begin{enumerate}
+    \item $\int_{1}^{\sqrt{3}} \frac{dx}{x\sqrt{1+x^2}}$
+    \item $t = \sqrt{1+x^2} \Rightarrow dt = \frac{x}{t}dx \Rightarrow dx = \frac{tdt}{x}$
+    \item $\int_{\sqrt{2}}^{2} \frac{dt}{x^2} = \int_{\sqrt{2}}^{2} \frac{dt}{t^2-1}$
+    \item $I=\frac{1}{2}\int_{\sqrt{2}}^{2}\left(\frac{1}{t-1}-\frac{1}{t+1}\right)dt$
+    \item $\ln\left(\frac{\sqrt{2}+1}{\sqrt{3}}\right)$
+\end{enumerate}
+
+\subsection{Задача 14}
+\begin{enumerate}
+    \item $\int_{1}^{\sqrt{3}} x \arctan(x) dx$
+    \item $\left[\frac{x^2}{2}\arctan(x)\right]_{1}^{\sqrt{3}} - \int_{1}^{\sqrt{3}} \frac{x^2}{2}\cdot \frac{dx}{1+x^2}$
+    \item $\int_{1}^{\sqrt{3}} \frac{x^2}{2}\cdot \frac{dx}{1+x^2} = \frac{1}{2}\int_{1}^{\sqrt{3}} \left(1 - \frac{1}{1+x^2}\right) dx$
+    \item $\frac{5\pi}{12} - \frac{\sqrt{3} - 1}{2}$
+\end{enumerate}
+
+\subsection{Задача 15}
+\begin{enumerate}
+    \item Логарифм принимает отрицательные значения на промежутке от $0$ до $1$ и неотриц от 1 до бесконечности
+    \item Пользуясь свойством аддитивности интеграла $-\int_{e^{-1}}^{1}\ln(x)dx + \int_{1}^{e}\ln(x)dx$
+    \item $\int \ln(x)dx = x\ln(x) - \int dx = x\ln(x) - x + C$
+    \item $2-\frac{2}{e}$
+\end{enumerate}
+
+\subsection{Задача 16}
+\begin{enumerate}
+    \item $\lim_{x \to +\infty} \frac{\int_{0}^{x} (\arctan(t)^2 dt)}{\sqrt{x^2+1}}$
+    \item Пользуясь правилом лопиталя т.к возникает неопределенность бесконечность на бесконечность $\lim_{x \to +\infty} \frac{\sqrt{x^2+1}\arctan^2(x)}{x}$
+    \item $\lim_{x \to +\infty} \frac{1}{\sqrt{1+\frac{1}{x^2}}}\arctan(x)^2 = \frac{\pi^2}{4}$
+\end{enumerate}
+
+\subsection{Задача 18}
+\begin{enumerate}
+    \item $u = \pi = x \Rightarrow du = -dx$
+    \item $I = \int_\pi^0 (\pi - u)\, f\bigl(\sin(\pi - u)\bigr)\,(-du) = \int_0^\pi (\pi - u)\, f\bigl(\sin(\pi - u)\bigr)\,du$
+    \item $I = \int_0^\pi (\pi - u)\, f(\sin u)\,du$
+    \item $I = \int_0^\pi x\, f(\sin x)\,dx \quad \text{и} \quad I = \int_0^\pi (\pi - x)\, f(\sin x)\,dx$
+    \item $2I = \int_0^\pi \bigl[x + (\pi - x)\bigr] f(\sin x)\,dx = \int_0^\pi \pi\, f(\sin x)\,dx$
+    \item $I = \frac{\pi}{2} \int_0^\pi f(\sin x)\,dx$
+    \item $\int_0^\pi x\, f(\sin x)\,dx = \frac{\pi}{2} \int_0^\pi f(\sin x)\,dx$
+\end{enumerate}
+
+\subsection{Задача 19}
+
+\begin{enumerate}
+    \item $ u = \frac{1}{2t}$ $dv = 2t \sin(t^2) \, dt$ $   du = -\frac{1}{2t^2} dt, \quad v = -\cos(t^2)$
+    \item $\int \sin(t^2) \, dt = -\frac{\cos(t^2)}{2t} + \frac{1}{2} \int \frac{\cos(t^2)}{t^2} \, dt$
+    \item $\int_{x}^{x+1} \sin(t^2) \, dt = \left[ -\frac{\cos(t^2)}{2t} \right]_{x}^{x+1} + \frac{1}{2} \int_{x}^{x+1} \frac{\cos(t^2)}{t^2} \, dt$
+    \item Оценим каждое слагаемое:
+    \item $\left| -\frac{\cos((x+1)^2)}{2(x+1)} + \frac{\cos(x^2)}{2x} \right| \leq \frac{1}{2(x+1)} + \frac{1}{2x} = \frac{1}{2}\left( \frac{1}{x} + \frac{1}{x+1} \right)$
+    \item $\left| \frac{1}{2} \int_{x}^{x+1} \frac{\cos(t^2)}{t^2} \, dt \right| \leq \frac{1}{2} \int_{x}^{x+1} \frac{1}{t^2} \, dt = \frac{1}{2} \left( \frac{1}{x} - \frac{1}{x+1} \right)$
+    \item Суммируем оценки:
+    \item $\frac{1}{2}\left( \frac{1}{x} + \frac{1}{x+1} \right) + \frac{1}{2}\left( \frac{1}{x} - \frac{1}{x+1} \right) = \frac{1}{x}$
+    \item Т.к $\cos(t^2) \ne 1$ строгое неравенство выполняется.
+    \item $\left| \int_{x}^{x+1} \sin(t^2) \, dt \right| < \frac{1}{x}$
+\end{enumerate}
+\end{document} 
+

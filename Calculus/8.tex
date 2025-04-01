@@ -1,0 +1,239 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Определение и некоторые свойства несобственного интеграла}
+
+\subsection{Задача 1}
+
+\begin{enumerate}
+    \item $\int_{-0.5\pi}^{0.5\pi}\tan(x)dx = -\ln(|\cos(x)|) \vline_{-0.5\pi}^{0.5\pi} = -\ln(\cos(0))+\ln(\cos(0))$
+    \item Расходится, т.к логарифм 0 - бесконечность и возникает разность бесконечностей, про которую нельзя ничего сказать. По крайней мере по риману.
+\end{enumerate}
+
+\subsection{Задача 2}
+
+\begin{enumerate}
+    \item $\int_{-\infty}^{+\infty} \frac{dx}{4+x^2} = 0.5\arctan(0.5x)\vline_{-\infty}^{+\infty}$
+    \item $0.5 (\pi/2 + \pi/2) = 0.5\pi$
+\end{enumerate}
+
+\subsection{Задача 3}
+\begin{enumerate}
+    \item $\int_{0}^{+\infty} e^{-ax}\cos(\beta x)dx = \int_{0}^{+\infty} \frac{\cos(\beta x)}{e^{ax}}$
+    \item $\int e^{mx} \cos(n x)  dx = \frac{m \sin(n x) + n \cos(n x)}{m^2 + n^2} e^{mx}$
+    \item $F(x) = \frac{-a \cos(\beta x) + \beta \sin(\beta x)}{e^{a x} (a^2 + \beta^2)}$
+    \item $\lim_{x \to +\infty} \frac{-a \cos(\beta x) + \beta \sin(\beta x)}{e^{a x} (a^2 + \beta^2)} - \lim_{x \to 0} \frac{-a \cos(\beta x) + \beta \sin(\beta x)}{e^{a x} (a^2 + \beta^2)} =  \int_{0}^{+\infty} \frac{\cos(\beta x)}{e^{ax}}$
+    \item $\lim_{x \to +\infty} \frac{-a \cos(\beta x) + \beta \sin(\beta x)}{e^{a x} (a^2 + \beta^2)} + \frac{a}{b^2+a^2}$
+    \item $\lim_{x \to +\infty} \frac{-a \cos(\beta x) + \beta \sin(\beta x)}{e^{a x} (a^2 + \beta^2)} \le \lim_{x \to +\infty} \frac{1}{e^x} = 0$
+    \item $\int_{0}^{+\infty} \frac{\cos(\beta x)}{e^{ax}} = \frac{a}{b^2+a^2}$ 
+    \item Таким образом $\alpha \ne \beta \ne 0$
+\end{enumerate}
+
+\subsection{Задача 4}
+\begin{enumerate}
+    \item Нам задана функция $y=x\frac{1+x}{1-x}$
+    \item Нам необходимо найти площадь под графиком от 0 до 1.
+    \item $\int_{0}^{1} x\frac{1+x}{1-x}dx$
+    \item $\int_{0}^{1} -x+1 +2 -\frac{2}{1-x} dx$
+    \item $F(x) = -0.5x^2+3x+2\ln(|x-1|)$
+    \item $-0.5+3+2\ln(0) $ - расходится
+\end{enumerate}
+
+\subsection{Задача 6}
+\begin{enumerate}
+    \item $\int_{0}^{+\infty} \frac{\ln(x)}{1+x^2}$
+    \item Разобьем на $\int_{0}^{1} \frac{\ln(x)}{1+x^2} + \int_{1}^{+\infty}\frac{\ln(x)}{1+x^2}$
+    \item $u = \frac{1}{x}$
+    \item $\int_{1}^{0}  \frac{\ln(u)}{1+u^2}du$
+    \item $-\int_{0}^{1} \frac{\ln(u)}{1+u^2}du$
+    \item $\int_{0}^{1}\frac{ln(x)}{1+x^2}dx - \int_{0}^{1} \frac{\ln(u)}{1+    u^2}du = 0$
+\end{enumerate}
+
+\section{Несобственные интегралы от знакопостоянных функций}
+
+\subsection{Задача 7}
+\begin{enumerate}
+    \item $\int_{-1}^{1} \frac{e^{1/x}}{x^3}dx $
+    \item Есть точка разрыва 0.
+    \item Распиливаем: $\int_{-1}^{0} \frac{e^{1/x}}{x^3}dx  + \int_{0}^{1} \frac{e^{1/x}}{x^3}$
+    \item $u = \frac{1}{x} \Rightarrow du = \frac{-1}{x^2}$
+    \item $\int_{0}^{1} \frac{e^{1/x}}{x^3} = \int_{+\infty}^{1} -ue^udu = \int_{1}^{+\infty} ue^udu$
+    \item $F(u) = e^u(u-1)$ видно, что предел в бесконечости равен бесконечности, значит интеграл не сходится.
+    \item Следовательно $\int_{-1}^{1} \frac{e^{1/x}}{x^3}dx $ не сходится
+    \item 
+\end{enumerate}
+
+\subsection{Задача 8}
+\begin{enumerate}
+    \item Попробуем доказать, что $\int_{0}^{\infty}\frac{1}{x^2+4} = 0.5\arctan(0.5x)\vline_{0}^{+\infty} = \frac{\pi}{4}$
+    \item Т.к у нас $\cos(4x)$ будет не всегда принимать значения =1, то $|\int_{0}^{+\infty}\frac{\cos(4x)}{x^2+4}|<\frac{\pi}{4}$
+\end{enumerate}
+
+
+\subsection{Задача 9}
+\begin{enumerate}
+    \item $\int_{0}^{+\infty}\frac{\arctan(x)dx}{(1+x^2)(e^x-1)^a}$
+    \item Рассмотрим поведение интеграла возле 0:
+    \item $\int_{0}^{\varepsilon} x^{1-a}dx$
+    \item Таким образом $a < 2$, чтобы интеграл сходился.
+    \item Далее рассмотрим верхнюю оценку на бесконечности:
+    \item $\frac{\pi}{2} \frac{1}{x^2 e^{\alpha x}} $
+    \item Если a>0 то интеграл не будет сходится на бесконечности т.к экспоненциальная функция растёт быстрее любой полиномиальной.
+    \item Если a=0, то $F(0)$ будет равен бесконечности. Т.е будет расходится
+    \item Таким образом $a \in (0, 2)$
+\end{enumerate}
+
+\subsection{Задача 10}
+\begin{enumerate}
+    \item $\int_{0}^{+\infty} \ln^a(\cosh(x))\cdot \arcsin(\frac{2x}{3+x^2})dx$
+    \item Рассмотрим ассимптотики на бесконечности.
+    \item $\ln(\cosh(x)) = \ln(\frac{e^x}{2}) = x-\ln(2)=x \Rightarrow \ln^a(\cosh(x))=x^a$
+    \item $\frac{2x}{3+x^2} = \frac{2}{x} \Rightarrow \arcsin(\frac{2x}{3+x^2}) = \frac{2}{x}$
+    \item $x^a\cdot \frac{2}{x} = 2x^{a-1} \Rightarrow a < 0$ т.к иначе будет расходится на бесконечности. 
+    \item Теперь рассмотрим при стремлении к 0.
+    \item $\cosh(x) = 1+\frac{x^2}{2} \Rightarrow \ln(\cosh(x)) = \ln(1+0.5x^2) = 0.5x^2$
+    \item $\arcsin(u)=u+\frac{u^3}{6} \Rightarrow \arcsin(\frac{2x}{3+x^2})=\frac{2x}{3}$
+    \item $\ln^a(\cosh(x))\cdot \arcsin(\frac{2x}{3+x^2})=\frac{1}{2^a}x^{2a}\cdot\frac{2x}{3}=\frac{2}{3\cdot2^a}x^{2a+1}$
+    \item Расходится если $2a+1>-1 \Rightarrow a > -1$
+    \item Таким образом $-1 < a < 0$
+\end{enumerate}
+
+\subsection{Задача 11}
+\begin{enumerate}
+    \item $\int_{0}^{+\infty} \frac{\ln(\frac{2+x^2}{1+x^2})}{(\sqrt{x+\sqrt{x}}\arctan(x))^a}$
+    \item Рассмотрим около 0.
+    \item $\ln(1+x^2)=x^2 \land \ln(2+x^2) = \ln(2)+\frac{x^2}{2} \Rightarrow \ln(2+x^2)-\ln(1+x^2)= \ln(2)-0.5x^2$
+    \item $\arctan(x)=x, \land \sqrt{\sqrt{x}(\sqrt{x}+1)}=x^{0.25}$
+    \item $\frac{\ln(2)+0.5x^{2-1.25a}}{1}$
+    \item $2-0.25a > -1 \Rightarrow a < 6$
+    \item Ассимптотики на бесконечности
+    \item $\ln(2+x^2) = \ln(x^2(2x^{-2}+1)) = 2\ln(x) + \ln(1+2/x^2)$
+    \item $\ln(1+x^2) = 2\ln(x) + \ln(1+1/x^2)$
+    \item $\ln(2+x^2)-\ln(1+x^2)=1/x^2$
+    \item $\sqrt{x+\sqrt{x}}\arctan(x)^a=\sqrt{x}$
+    \item $\frac{\ln(\frac{2+x^2}{1+x^2})}{(\sqrt{x+\sqrt{x}}\arctan(x))^a} = \frac{1}{\frac{\pi}{2}^a x^{2+a/2}}$
+    \item $-2 < a < 4/5$
+\end{enumerate}
+
+
+\subsection{Задача 12}
+\begin{enumerate}
+    \item Рассмотрим около 0
+    \item $\ln(\cos(x/(x+1))) = \ln(1-0.5x^2) = -0.5x^2$
+    \item $|\ln(\cos(x/(x+1)))| = 0.5x^2$
+    \item $\sinh(ax)/e^x = \frac{ax}{1}$
+    \item $|\ln(\cos(x/(x+1)))|\sinh(ax)/e^x = 0.5x^{2(a-1)+1}a$
+    \item $2(a-1)+1>-1 \Rightarrow a>0$ - пользуясь вторым признаком сравнения
+    \item Далее будем рассматривать на бесконечности.
+    \item $\cos(1-\frac{1}{x+1}) = 1$
+    \item $|\cos(1-\frac{1}{x+1})|^{a-1} = |\ln(\cos(1))|^{a-1}$
+    \item $\frac{\sinh(ax)}{e^x} = \frac{e^{ax}-e^{-ax}}{2e^x}= 0.5(e^{(a-1)x}-e^{-(a+1)x})$
+    \item $\frac{|\ln(\cos(1))|^{a-1}}\cdot  0.5(e^{(a-1)x}-e^{-(a+1)x})$ сходится только в случае, если a<1, если больше, то будет бесконечность - бесконечность. Если равен, то константе, значит наш интеграл будет бесконечно накапливаться и не будет сходимости.
+    \item $0 < a < 1$
+\end{enumerate}
+
+\section{Примеры решения задач на условную и абсолютную сходимость интегралов}
+
+\subsection{Задача 14}
+
+\begin{enumerate}
+    \item $\int_{0}^{1}\frac{\sin^3(\frac{1}{x})}{\arctan^a(x)}dx$
+    \item $t = \frac{1}{x} \Rightarrow dt = -\frac{1}{x^2}dx$
+    \item $\int_{1}^{\infty}\frac{\sin^3(t)}{t^2\arctan^a(1/t)}$
+    \item $\lim_{t \to 1} \frac{|\sin^3(t):}{t^2\arctan^a(1/t)} = \frac{4^a\sin^3(1)}{\pi^a}$
+    \item $\lim_{t \to \infty} \frac{|\sin^3(t)|}{t^2\arctan^a(1/t)} = \lim_{t \to \infty} \frac{|\sin^3(t)|}{t^{2-a}}$ таким образом $ a < 1$
+    \item Т.е если a<1 то абсолютно сходится
+    \item Проанализируем на условную сходимость
+    \item $\frac{\sin^3(t)}{t^{2-a}} = \frac{3\sin(t)-\sin(3t)}{4t^{2-a}}$
+    \item $\int_{1}^{\infty} \frac{3\sin(t)}{4t^{2-a}} - \int_{1}^{\infty} \frac{\sin(3t)}{4t^{2-a}}$
+    \item Теперь для того, чтобы можно было по Признаку дирихле сказать, что интеграл условно сходится, необходимо, чтобы не a<=1 и 2-a > 0 т.е 1<=a<2
+\end{enumerate}
+
+\subsection{Задача 15}
+\begin{enumerate}
+    \item $\int_{1}^{+\infty} \bigl|\sin\!\bigl(x + \tfrac{1}{x}\bigr)\bigr|\;\frac{dx}{x^a}$
+    \item $\bigl|\sin\!\bigl(x + \tfrac{1}{x}\bigr)\bigr|\;\frac{1}{x^a}\;\le\;\frac{1}{x^a}$ 
+    \item $\int_{1}^{+\infty}\frac{dx}{x^a}, a>1$ только в таком случае абсолютно сходится
+    \item $\int_{1}^{+\infty} \sin\!\Bigl(x + \tfrac{1}{x}\Bigr)\,\frac{dx}{x^a}$
+    \item Для условной сходимости, пусть $f(x)=\sin(x+1/x), \quad g(x) = 1/x^a$
+    \item Тогда первообразная f ограничена на всём интервале, предел функции g в бесконечности равен 0, функция g нестрого убывает, только при 0 < a < 1.
+\end{enumerate}
+
+\subsection{Задача 19}
+\begin{enumerate}
+    \item $\int_{1}^{+\infty}\frac{\sin(x)\sin(x)}{x}$
+    \item $f(x)=\sin(x)\land g(x) = \frac{\sin(x)}{x}$
+    \item $f(x)$ непрерывна и имеет ограниченную первообразную
+    \item $g(x)$ непрерывно дифференцируема и стремится к нулю при $x \to \infty$
+    \item $\int_{1}^{+\infty} \frac{\sin^2(x)}{x} = 0.5 \int_{1}^{+\infty} \frac{1}{x}dx-0.5\int_{1}^{+\infty} \frac{\cos(2x)}{x}dx$
+    \item Рассмотрим первый интеграл - он расходится, т.к будет равен $\ln(+\infty)$
+    \item Следовательно утверждение, что монотонность неважны в критерии дирихле, неверно.
+\end{enumerate}
+
+
+
+\end{document} 
+

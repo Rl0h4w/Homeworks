@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:14  # Используем официальный образ PostgreSQL версии 14
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: root       # Имя пользователя для базы данных
+      POSTGRES_PASSWORD: 25565  # Пароль пользователя
+      POSTGRES_DB: database     # Название базы данных
+    ports:
+      - "5432:5432"  # Проброс порта для доступа к PostgreSQL локально
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Храним данные PostgreSQL в volume
+
+  pgadmin:
+    image: dpage/pgadmin4  # Используем официальный образ PgAdmin
+    container_name: pgadmin_container
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com  # Email для входа в PgAdmin
+      PGADMIN_DEFAULT_PASSWORD: adminpassword   # Пароль для входа в PgAdmin
+    ports:
+      - "5050:80"  # Проброс порта для доступа к PgAdmin локально
+    depends_on:
+      - postgres  # PgAdmin будет запускаться только после того, как запустится PostgreSQL
+
+  app:
+    build: .  
+    container_name: app_container
+    restart: always
+    depends_on:
+      - postgres  
+    ports:
+      - "8080:8080"  
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: database
+      DB_USER: root
+      DB_PASSWORD: 25565
+
+volumes:
+  postgres_data:  
