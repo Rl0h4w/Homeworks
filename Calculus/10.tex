@@ -1,0 +1,154 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Примеры нахождения суммы ряда}
+
+\subsection{Задача 1}
+
+\begin{enumerate}
+    \item $\sum_{k=1}^{\infty} \frac{1}{(2k-1)(2k+1)}$
+    \item $\sum_{k=1}^{\infty} \frac{1}{4k-2} - \frac{1}{4k+2} = \lim_{n \to \infty}0.5 - \frac{1}{4n+2} = 0.5$ 
+\end{enumerate}
+
+
+\subsection{Задача 2}
+
+
+\subsection{Задача 3}
+\begin{enumerate}
+	\item $\sum_{1}^{\infty} \frac{2k+1}{k^2(k+1)^2}$
+	\item $\sum_{1}^{\infty} \frac{1}{k^2}-\frac{1}{(k+1)^2} = \frac{1}{1} - \frac{1}{4} + \frac{1}{4} - \frac{1}{9} \dots = \lim_{k \to \infty} 1- \frac{1}{k} = 1$
+\end{enumerate}
+
+\subsection{Задача 4}
+\begin{enumerate}
+	\item $\sum_{k=2}^{\infty} \ln(1 - \frac{2}{k(k+1)}) = \ln(k-1) - \ln(k) - \ln(k+1)  + \ln(k+2) = -\ln(3)$ 
+\end{enumerate}
+
+\subsection{Задача 5}
+\begin{enumerate}
+	\item $\sum_{1}^{\infty} \sqrt{k+2}-2\sqrt{k+1}+\sqrt{k} = \sqrt{1}-2\sqrt{2}+\sqrt{3}+\sqrt{2}-2\sqrt{3} + \sqrt{4} + \sqrt{3} + 2\sqrt{4} + \sqrt{5} + \dots = 1 - \sqrt{2} + \frac{1}{\sqrt{1+n}-\sqrt{2+n}} = 1-\sqrt{2}$
+\end{enumerate}
+
+\subsection{Задача 6}
+\begin{enumerate}
+	\item $\sum_{k=1}^{\infty} \ln(k^2+3+\frac{2}{k^2})$
+	\item $\lim_{k \to \infty} \ln(k^2+3+\frac{2}{k^2}) = \infty$ - таким образом не соответствует необходимому условию сходимости (предел к бесконечности не равен нулю, следовательно сумма бесконечно суммируется)
+\end{enumerate}
+
+\section{Критерий Коши сходимости числового ряда}
+
+\subsection{Задача 7}
+\begin{enumerate}
+	\item $\forall \varepsilon > 0 \exists N \in \mathbb{N}: \forall n \ge N \forall p \in \mathbb{N} |\sum_{k=n+1}^{n+p} \frac{1}{\sqrt{k(k+1)}}|$
+	\item Пусть $n  = p = N \Rightarrow |\sum_{k=N+1}^{2N}\frac{1}{\sqrt{k(k+1)}}| \ge |\frac{1}{\sqrt{2N(2N+1)}}| = \sum_{k=N+1}^{2N} \frac{1}{\sqrt{4+\frac{2}{N}}} < 0.5$ При N = 1 и $\varepsilon = \frac{1}{3}$ неравенство не выполняется, следовательно расходится. 
+\end{enumerate}
+
+\subsection{Задача 8}
+\begin{enumerate}
+	\item $\forall \varepsilon > 0 \exists N \in \mathbb{N}: \forall n \ge N \forall p \in \mathbb{N} |\sum_{k=1}^{\infty} \frac{\cos(kx)}{2^k}| < \varepsilon $
+	\item $|\sum_{n=1}^{\infty} \frac{\cos(kx)}{2^k}| \le |\sum_{n=1}^{\infty} \frac{1}{2^k}|$
+	\item Таким образом, т.к геометрический ряд, показатель которого меньше 1 сходится, то наша искомая функция сходится аболютно, а значит, ряд сходится.
+\end{enumerate}
+
+\subsection{Задача 9}
+\begin{enumerate}
+	\item $|\sum_{n=1}^{\infty} \frac{\ln(n)+\sin(n)}{n^2}| < \sum_{n=1}^{\infty} \frac{\ln(n)+1}{n^2}$
+	\item Сделаем интегральный тест: $\int_{1}^{\infty} \frac{\ln(x)+1}{x^2}dx = (-\frac{\ln(n)+2}{n})|_{1}^{\infty} = 2$ - сходится, значит и наш ряд сходится.
+\end{enumerate}
+
+\subsection{Задача 10}
+\begin{enumerate}
+	\item $|\sum_{k=1}^{\infty} \frac{11+5(-1)^k}{2^{k+4}}|<\sum_{k=1}^{\infty} \frac{16}{2^{k+4}}$
+	\item Воспользуемся интегральным тестом: $16 \int_{1}^{\infty} \frac{1}{2^{k+4}} = \frac{1}{\ln(4)}$
+	\item Сходится абсолютно, значит и наш искомый интеграл сходится
+	\item $\sum_{k=1}^{\infty} \frac{1}{k} + \frac{1}{2k^2}$ - не сходится т.к одно из слагаемых будет расходится
+\end{enumerate}
+
+\subsection{Задача 11}
+\begin{enumerate}
+	\item $\sum_{k=1}^{\infty} \frac{5k^5+e^k}{4^k+\ln(k+1)^3} < \sum_{k=1}^{\infty} \frac{5k^5+e^k}{4^k} \Rightarrow \sum_{k=1}^{\infty} \frac{5k^5}{4^k} + \frac{e^k}{4^k}$ - сходится т.к две суммы сходятся
+	\item $\sum_{k=1}^{\infty} \frac{2k^3+7k+3}{\sqrt{k^8+6k^2+1}} < \sum_{k=1}^{\infty} \frac{2k^3}{k^4}$ Расходится.
+\end{enumerate}
+
+\subsection{Задача 12}
+\begin{enumerate}
+	\item $\sum_{k=1}^{\infty} (1-\ln(1+k)^{-\frac{1}{k}})$
+	\item $\sum_{k=1}^{\infty} (1-e^{-\frac{1}{k}\ln(\ln(1+k))})$
+	\item $\sum_{k=1}^{\infty} \frac{\ln(\ln(k))}{k}$ - расходится при интегральной оценке.
+\end{enumerate}
+
+\subsection{Задача 13}
+\begin{enumerate}
+	\item $\sum_{k=1}^{\infty} 1-\cos(\frac{\pi}{k^{1.5}})$
+	\item Хочется попробовать через признак Д`Аламбера
+	\item $\lim_{k \to \infty} \frac{a_{k+1}}{a_k} = \lim_{k \to \infty} \frac{1-\cos(\frac{\pi}{(k+1)^{1.5}})}{1-\cos(\frac{\pi}{k^{1.5}})}$
+	\item Тейлором его около 0
+	\item $\lim_{k \to \infty} \frac{a_{k+1}}{a_k} = \lim_{k \to \infty} \frac{\frac{\pi^2}{2(k+1)^3} - \frac{\pi^4}{24(k+1)^6}}{1-\frac{\pi^2}{2k^3}+\frac{\pi^4}{24k^6}} = \lim_{k \to \infty} \frac{k^3}{(k+1)} = 1$ - очень грустно
+	\item $\sum_{k=1}^{\infty} \frac{\pi^2}{2k^3} < \pi^2 \sum_{k=1}^{\infty} \frac{1}{k^3}$ - сходится как известный p-ряд. Получается, что Даламбэро критерьеро не помог
+\end{enumerate}
+
+\end{document} 

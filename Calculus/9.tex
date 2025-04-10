@@ -1,0 +1,281 @@
+\documentclass[a4paper,12pt]{article}
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amsmath,amsfonts,amssymb}
+
+% Графика
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Добавлено для устранения предупреждения
+
+% Геометрия страницы
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.5cm, right=2.5cm}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Плавающие объекты
+\usepackage{float}
+
+% Дополнительные пакеты
+\usepackage{venndiagram}
+
+% Настройки заголовка
+\title{Домашнее задание}
+\author{Студент: \textbf{Ростислав Лохов}}
+\date{\today}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+
+	\Huge
+	\textbf{Домашнее задание}
+
+	\vspace{0.5cm}
+	\LARGE
+	По курсу: \textbf{Математический Анализ}
+
+	\vspace{1.5cm}
+
+	\textbf{Студент: Ростислав Лохов}
+
+	\vfill
+
+	\Large
+	АНО ВО Центральный университет\\
+	\vspace{0.3cm}
+	\today
+
+\end{titlepage}
+
+% Содержание
+\tableofcontents
+\newpage
+
+% Основной текст
+\section{Определение и некоторые свойства несобственного интеграла}
+
+\subsection{Задача 1}
+
+\begin{enumerate}
+    \item $\int_{-\infty}^{0.25\pi} e^x\sin(x)dx = 0.5e^x(\sin(x)-\cos(x)) \vline_{-\infty}^{0.25\pi}=$
+    \item $0-(0.5e^{0.25\pi}(\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2})) = 0$ 
+\end{enumerate}
+
+\subsection{Задача 2}
+\begin{enumerate}
+    \item $y(x_0) = 1$
+    \item $y-1=-0.5(x-1) \Rightarrow y=-0.5x+1.5$ - ур-е нормали в точке 1
+    \item $x^2=-0.5x+1.5 \Rightarrow x = -1.5, x=1$
+    \item $S = \int_{-1.5}^{1} -0.5x+1.5 - \int_{-1.5}^{1} x^2$
+    \item $S = (-0.25x^2+1.5x)|_{-1.5}^1 - (x^3/3)_{-1.5}^1 = \frac{125}{48}$
+
+\end{enumerate}
+
+\subsection{Задача 3}
+\begin{enumerate}
+    \item $\frac{dx}{dt} = 12t^2$
+    \item $\frac{dy}{dt} = 12t^3$
+    \item $L = \int_{0}^{1} \sqrt{144t^4+144t^6}dt = 12\int_{0}^{1}t^2\sqrt{1+t^2}dt$
+    \item $t=\tan(\theta)$
+    \item $L = \int_{0}^{0.25\pi} \tan^2(\theta)\sec^3(\theta)d\theta$
+    \item $\int_{0}^{0.25\pi}\sec^5(\theta) - \int_{0}^{0.25\pi} \sec^3(\theta)$
+    \item $\int (\sec^5(\theta) - \sec^3(\theta)) d\theta = \left(\frac{1}{4}\sec^3(\theta)\tan(\theta) + \frac{3}{8}\sec(\theta)\tan(\theta) + \frac{3}{8}\ln|\sec(\theta) + \tan(\theta)|\right) - \left(\frac{1}{2}\sec(\theta)\tan(\theta) + \frac{1}{2}\ln|\sec(\theta) + \tan(\theta)|\right) = \frac{1}{4}\sec^3(\theta)\tan(\theta) + \left(\frac{3}{8} - \frac{4}{8}\right)\sec(\theta)\tan(\theta) + \left(\frac{3}{8} - \frac{4}{8}\right)\ln|\sec(\theta) + \tan(\theta)| = \frac{1}{4}\sec^3(\theta)\tan(\theta) - \frac{1}{8}\sec(\theta)\tan(\theta) - \frac{1}{8}\ln|\sec(\theta) + \tan(\theta)|$
+    \item $L=12\left(\frac{3\sqrt{2}}{8}-\frac{1}{8}\ln(1+\sqrt{2})\right)=\frac{36\sqrt{2}}{8}-\frac{12}{8}\ln(1+\sqrt{2})=\frac{9\sqrt{2}}{2}-\frac{3}{2}\ln(1+\sqrt{2})$
+\end{enumerate}
+
+\subsection{Задача 4}
+
+\begin{enumerate}
+    \item $L = \int_{2}^{5} \sqrt{1+\frac{4x^2}{(x^2-1)^2}}$
+    \item $L = \int_{2}^{5} \sqrt{\frac{x^4+2x^2+1}{x^4-2x^2+1}}$
+    \item $L = \int_{2}^{5} |\frac{x^2+1}{x^2-1}|$
+    \item $L = \int_{2}^{5} \frac{x^2-1+2}{x^2-1} = \int_{2}^{5} 1+\frac{2}{x^2-1} = 3 - 2\int_{2}^{5} \frac{1}{1-x^2} = 3 + \ln(2)$
+\end{enumerate}
+
+\subsection{Задача 5}
+\begin{enumerate}
+    \item $S = \pi \int_{0}^{\sqrt{2}} x^3\sqrt{x^2+1}$
+    \item $u = x^2+1 \Rightarrow du = 2x dx$
+    \item $S = \pi \int_{1}^{3} 0.5(u-1)u^{0.5}du = 0.5\pi \int_{1}^{3} u^{1.5}-u^{0.5} du = 0.5\pi (\frac{u^{2.5}}{2.5}-\frac{u^{1.5}}{1.5})_{1}^{3} = \pi \frac{12\sqrt{3}+2}{15}$
+\end{enumerate}
+
+\subsection{Задача 6}
+\begin{enumerate}
+    \item $\pi \int_{-R}^{R} \sqrt{R^2-x^2}^2dx$
+    \item $\pi \int_{-R}^{R} R^2-x^2dx$
+    \item $\pi (R^2x-\frac{x^3}{3})|_{-R}^R$
+    \item $\frac{4}{3}\pi R^3$
+\end{enumerate}
+
+\subsection{Задача 7}
+\begin{enumerate}
+    \item ур-е шара $r^2=x^2+y^2$
+    \item $S = 2\pi \int_{-r}^{r}\sqrt{r^2-x^2}\sqrt{1+\frac{x^2}{r^2-x^2}}dx$
+    \item $S = 2\pi \int_{-r}^{r} \sqrt{r^2}dx$
+    \item $S = 2\pi \int_{-r}^{r} rdx$
+    \item $S = 2\pi 2r^2=4\pi r^2$
+\end{enumerate}
+
+\subsection{Задача 8}
+\begin{enumerate}
+    \item $y=\frac{\sqrt{1-2x^2}}{2} \Rightarrow y'=\frac{-x}{\sqrt{1-2x^2}}$
+    \item $S = 2\pi \int_{0}^{\frac{\sqrt{2}}{2}}\frac{\sqrt{1-2x^2}}{2} \sqrt{1+\frac{x^2}{1-2x^2}}dx$
+    \item $S = 2\pi \int_{0}^{\frac{\sqrt{2}}{2}}\sqrt{\frac{1-2x^2}{4}+\frac{x^2}{4}}dx$
+    \item $S = 2\pi \int_{0}^{\frac{\sqrt{2}}{2}} \sqrt{\frac{1-x^2}{4}}dx$
+    \item $S = \pi \int_{0}^{\frac{\pi}{4}} \cos^2(y)dy$
+    \item $S = \frac{\pi^2}{8}+\frac{\pi}{4}$
+\end{enumerate}
+
+\subsection{Задача 10}
+\begin{enumerate}
+    \item Функция распределения веростности - отношение площадей функции, т.е $F = \frac{x^2}{R^2}=$
+    \item Плотность распределения - $f' = \frac{2x}{R^2}$
+    \item $E = \int_{0}^{R} \frac{2x^2}{R^2}dx = \frac{2}{3}R$
+    \item $E_2 = \int_{0}^{R} x^2\frac{2x}{R^2}dx=\frac{R^2}{2}$
+    \item $Var = E_2-E^2=\frac{R^2}{18}$
+\end{enumerate}
+
+\subsection{Задача 11}
+\begin{enumerate}
+    \item $f(x)=(1+\frac{a}{x}I_{2, \infty}(x))$
+    \item $\int_{2}^{\infty} 1+\frac{a}{x} = (x+a\ln(x))|_{2}^{\infty}$ - расходится, не может быть плотностью распределения
+\end{enumerate}
+
+\subsection{Задача 12}
+\begin{enumerate}
+    \item $f(x) = \frac{2}{x^3}I_{1, +\infty}$
+    \item $\int_{-\infty}^{\infty} f(x) = 1$
+    \item $E = \int_{-\infty}^{\infty} xf(x)= 2$
+    \item $E_2 = \int_{-\infty}^{\infty} x^2f(x) = \int_{1}^{+\infty} \frac{1}{x} dx = -\ln(1) + \ln(+\infty)$ - расходится
+\end{enumerate}
+
+\subsection{Задача 13}
+\begin{enumerate}
+    \item Вся вероятность лежит на $(-\infty; 8]$
+    \item Тогда для максимизации дисперсии, необходимо максимизировать разброс значений случайной величины относительно ее математического ожидания.
+    \item Пусть вся масса лежит в некой точке $c \le 2$, а оставшаяся $0.8$ в точке 8.
+    \item $E = 0.2c+0.64$
+    \item $Var(\xi) = 0.2(c-(0.2c+0.64))^2+0.8(8-(0.2c+0.64))^2$
+    \item $\frac{4(8-c)^2}{25}=Var(\xi) $
+    \item при с стремящемся к $\infty$ получаем максимальную дисперсию.
+\end{enumerate}
+
+\subsection{Задача 14}
+\begin{enumerate}
+    \item $S = 0.5 a h$
+    \item h - высота, величина постоянная. $E$
+    \item $h = 5\sqrt{3}$
+    \item $S(x) = 2.5\sqrt{3}x$
+    \item $E(x) = \int_{0}^{10} 2.5\sqrt{3}dx$ - т.к равномерное распределение
+    \item $E(x) = 12.5\sqrt{3}$
+    \item $Var(x) = \frac{75}{4} Var(x)$ т.к равномерно распределенное, то 
+    \item $Var(x) = \frac{75}{4}\cdot \frac{100}{12} = 156.25$
+\end{enumerate}
+
+\subsection{Задача 15}
+\begin{enumerate}
+    \item $P(k \le \xi \le k+1) = \int_{k}^{k+1} \lambda e^{-\lambda x}dx = e^{-\lambda k}(1-e^{-\lambda})$ - видно, что геом прогрессия.
+    \item $t = e^{-\lambda} \Rightarrow P(1<\xi < 2) = t-t^2$ достигает максимума в точке (0.5, 0.25) таким образом невозможно
+    \item $t(1-t)=\frac{4}{27} \Rightarrow t = 0.5 \pm 0.5\sqrt{\frac{11}{27}}$ т.е существуют такие корни, значит возможно
+\end{enumerate}
+
+\subsection{Задача 16}
+\begin{enumerate}
+    \item $\int_{0}^{\infty} x^n \lambda e^{-\lambda x} dx = 0 + \int_{0}^{\infty} \frac{n}{\lambda}x^{n-1}\lambda e^{-\lambda x} = \frac{n!}{\lambda^n}$
+\end{enumerate}
+
+
+\subsection{Задача 17}
+\begin{enumerate}
+    \item $   P(\xi > x + y \mid \xi > x) = \frac{P(\xi > x + y \text{ и } \xi > x)}{P(\xi > x)}$    Заметим, что событие \(\{\xi > x + y\}\) является подмножеством события \(\{\xi > x\}\), поэтому \(P(\xi > x + y \text{ и } \xi > x) = P(\xi > x + y)\)
+    \item $   P(\xi > x + y \mid \xi > x) = \frac{P(\xi > x + y)}{P(\xi > x)}$
+    \item $   P(\xi > t) = \int_t^{\infty} \lambda e^{-\lambda s} \, ds = e^{-\lambda t}$
+    \item $   P(\xi > x) = e^{-\lambda x}, \quad P(\xi > x + y) = e^{-\lambda (x+y)}$
+    \item $   P(\xi > x + y \mid \xi > x) = \frac{e^{-\lambda (x+y)}}{e^{-\lambda x}} = e^{-\lambda y}$  Но \(e^{-\lambda y}\) — это и есть \(P(\xi > y)\). Таким образом, получаем:
+    \item $   P(\xi > x + y \mid \xi > x) = P(\xi > y)$
+\end{enumerate}
+
+\subsection{Задача 18}
+\begin{enumerate}
+    \item $E|\xi|  \land Var|\xi| \land \xi \approx N(0, \sigma^2)$
+    \item $E|\xi| = \int_{-\infty}^{+\infty} |x| \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}} = -\int_{-\infty}^{0} x \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}} + \int_{0}^{+\infty} x \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}} = 2\int_{0}^{+\infty} x \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}$
+    \item $2\frac{1}{\sqrt{2\pi\sigma^2}}\int_{0}^{+\infty} x e^{-\frac{x^2}{2\sigma^2}}$
+    \item $u = \frac{x^2}{2\sigma^2} \Rightarrow du = \frac{x}{\sigma^2}dx$
+    \item $\frac{2\sigma}{\sqrt{2\pi}} \int_{0}^{\infty}  e^{-u} du = \frac{2\sigma}{\sqrt{2\pi}} (-e^{-u})|_0^{\infty}$
+\end{enumerate}
+
+\subsection{Задача 19}
+\begin{enumerate}
+    \item $P(\xi - 8|<4), P(|\xi-2|<4), P(|\xi-3|<4)$
+\end{enumerate}
+
+\subsection{Задача 20}
+\begin{enumerate}
+    \item $ \int_{a}^{b} \frac{1}{3\sqrt{2\pi}} e^{-\frac{(x+2)^2}{2\cdot 3^2}} dx = 0,5 $
+    \item $t = \frac{x+2}{3} \Rightarrow 3dt = dx$
+    \item $\int_{\frac{a+2}{3}}^{\frac{b+2}{3}} \frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt = 0.5$
+    \item $\Phi(\frac{b+2}{3})-\Phi(\frac{a+2}{3}) = 0.5$
+    \item $\frac{a+2}{3} = -\frac{b+2}{3}$ по св-ву симметричности:
+    \item $2\Phi(\frac{b+2}{3})-1=0.5$
+    \item $\Phi(\frac{b+2}{3}) = 0.75 \Rightarrow a=-4.0245 \land b = 0.0235$
+\end{enumerate}
+
+\subsection{Задача 22}
+\begin{enumerate}
+    \item $f_\xi (x) = \frac{1}{x\sqrt{2\pi}}e^{-\frac{\ln(x)^2}{2}}$
+    \item $E\xi = \int_{0}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{\ln(x)^2}{2}} dx$
+    \item $\ln(x) = t \Rightarrow dx = xdt$
+    \item $E\xi = \int_{-\infty}^{\infty} \frac{e^t}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt$
+    \item $E\xi = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}}e^{-\frac{t^2+1}{2}}dt$
+    \item $E\xi = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} \exp\left( -\frac{(t - 1)^2}{2} + \frac{1}{2} \right) dt$
+    \item $E\xi = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{(t - 1)^2}{2}\right) \exp\left(\frac{1}{2}\right) dt  e^{\frac{1}{2}} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{(t - 1)^2}{2}\right) dt$
+    \item $\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{(t - 1)^2}{2}\right) dt = 1$
+    \item $E\xi = \sqrt{e}$
+    \item $\operatorname{Var} \xi = \left(\exp(\sigma^2) - 1\right) \exp\left(2\mu + \sigma^2\right)$ - просто формула логнормального распределения
+    \item $\operatorname{Var} \xi = \left(\exp(1) - 1\right) \exp\left(0 + 1\right) = \exp(1)\left(\exp(1) - 1\right)$
+\end{enumerate}
+
+\subsection{Задача 24}
+\begin{enumerate}
+    \item $\Phi\Bigl(\frac{19-\mu}{\sigma}\Bigr)-\Phi\Bigl(\frac{1-\mu}{\sigma}\Bigr) = \Phi\Bigl(\frac{22-\mu}{\sigma}\Bigr)-\Phi\Bigl(\frac{4-\mu}{\sigma}\Bigr)$
+    \item $m_1 = 10, m_2 = 13, \Rightarrow |10-\mu|=|13-\mu| \Rightarrow \mu = 11.5$
+    \item $P(5<\xi<10)=\Phi\Bigl(\frac{10-11.5}{\sigma}\Bigr)-\Phi\Bigl(\frac{5-11.5}{\sigma}\Bigr)=\Phi\Bigl(-\frac{1.5}{\sigma}\Bigr)-\Phi\Bigl(-\frac{6.5}{\sigma}\Bigr)$
+    \item $P(5<\xi<10)=\Bigl[1-\Phi\Bigl(\frac{1.5}{\sigma}\Bigr)\Bigr]-\Bigl[1-\Phi\Bigl(\frac{6.5}{\sigma}\Bigr)\Bigr]=\Phi\Bigl(\frac{6.5}{\sigma}\Bigr)-\Phi\Bigl(\frac{1.5}{\sigma}\Bigr)$
+    \item $g(t)=\Phi(6.5t)-\Phi(1.5t) \Rightarrow g'(t)=6.5\varphi(6.5t)-1.5\varphi(1.5t)$
+    \item $6.5\frac{1}{\sqrt{2\pi}}\exp\Bigl(-\frac{(6.5t)^2}{2}\Bigr)=1.5\frac{1}{\sqrt{2\pi}}\exp\Bigl(-\frac{(1.5t)^2}{2}\Bigr)$
+    \item $t^2=\frac{1}{20}\ln\frac{6.5}{1.5}$
+    \item $\ln\frac{6.5}{1.5}=\ln\Bigl(\frac{13}{3}\Bigr)\approx \ln(4.3333)\approx 1.464$
+    \item $t^2\approx \frac{1.464}{20}\approx 0.0732,\quad t\approx \sqrt{0.0732}\approx 0.2707$
+    \item $P(5<\xi<10)\approx 0.9608-0.6591\approx 0.3017$
+\end{enumerate}
+
+
+\subsection{Задача 25}
+\begin{enumerate}
+    \item $\eta = -\cot(\pi \xi), \quad \xi \sim U[0,1]$
+    \item $\theta = \pi \xi - \frac{\pi}{2}$
+    \item $\pi \xi = \theta + \frac{\pi}{2}$
+    \item $\cot\left(\theta+\frac{\pi}{2}\right) = -\tan\theta$
+    \item $\eta = -\cot(\pi\xi)= -\cot\Bigl(\theta+\frac{\pi}{2}\Bigr) = \tan\theta$
+    \item $\theta = \pi \xi - \frac{\pi}{2} \quad \text{равномерно на } \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$
+    \item $f_\theta(\theta) = \frac{1}{\pi}, \quad \theta\in \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$
+    \item $\theta = \arctan\eta$
+    \item $\frac{d\theta}{d\eta} = \frac{1}{1+\eta^2}$
+    \item $f_\eta(\eta) = f_\theta(\theta)\left|\frac{d\theta}{d\eta}\right| = \frac{1}{\pi} \cdot \frac{1}{1+\eta^2}, \quad \eta\in\mathbb{R}$
+    \item $\boxed{f_\eta(\eta)=\frac{1}{\pi(1+\eta^2)},\quad \eta\in\mathbb{R}}$
+\end{enumerate}
+
+
+\end{document} 
